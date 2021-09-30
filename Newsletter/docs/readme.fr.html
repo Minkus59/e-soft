@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Robots" content="noindex" />
+    <title>Fichier lisez-moi – Wanewsletter</title>
+    <link rel="index" href="#toc" />
+    <link rel="chapter" href="#presentation" title="Présentation" />
+    <link rel="chapter" href="#config" title="Configuration requise" />
+    <link rel="chapter" href="#quick-install" title="Installation&nbsp;: Explications rapides" />
+    <link rel="chapter" href="#installation" title="Installation&nbsp;: Explications détaillées" />
+    <link rel="chapter" href="#upgrade-from-2.2" title="Mise à jour d’une version 2.2.x ou plus récente" />
+    <link rel="chapter" href="#upgrade-from-2.0" title="Mise à jour d’une version 2.0.x/2.1.x" />
+    <link rel="chapter" href="#l10n" title="Traduction de l’application" />
+    <link rel="chapter" href="#problems" title="Problèmes connus" />
+    <link rel="chapter" href="#contrib" title="Contribuer au projet" />
+    <link rel="chapter" href="#packages" title="Librairies tierces" />
+    <link rel="chapter" href="#author" title="Notes de l’auteur" />
+    <link rel="stylesheet" href="./wadoc.css" />
+  </head>
+  <body>
+    <div id="smallheader">
+      <h1>Fichier lisez-moi – Wanewsletter</h1>
+    </div>
+    <div id="global">
+      <p id="preface">Prenez le temps de lire ce fichier attentivement, il contient des informations utiles.</p>
+      <div class="block">
+        <h2>Sommaire</h2>
+        <ol id="toc">
+          <li>
+            <a href="#presentation">Présentation</a>
+          </li>
+          <li>
+            <a href="#config">Configuration requise</a>
+          </li>
+          <li>
+            <a href="#quick-install">Installation&nbsp;: Explications rapides</a>
+          </li>
+          <li>
+            <a href="#installation">Installation&nbsp;: Explications détaillées</a>
+          </li>
+          <li>
+            <a href="#upgrade-from-2.2">Mise à jour d’une version 2.2.x ou plus récente</a>
+          </li>
+          <li>
+            <a href="#upgrade-from-2.0">Mise à jour d’une version 2.0.x/2.1.x</a>
+          </li>
+          <li>
+            <a href="#l10n">Traduction de l’application</a>
+          </li>
+          <li>
+            <a href="#problems">Problèmes connus</a>
+          </li>
+          <li>
+            <a href="#contrib">Contribuer au projet</a>
+          </li>
+          <li>
+            <a href="#packages">Librairies tierces</a>
+          </li>
+          <li>
+            <a href="#author">Notes de l’auteur</a>
+          </li>
+        </ol>
+      </div>
+      <hr />
+      <div id="presentation" class="block">
+<h2>Présentation</h2><div class="content">
+	
+
+	<p>Wanewsletter est un script de newsletter complet développé en PHP et utilisant
+	une base de données.</p>
+
+    <p>L’installation a été simplifiée au maximum pour permettre une mise en production rapide.
+	L’administration dispose de puissantes fonctionnalités et vous permet d'intervenir sur tous
+	les aspects de vos listes de diffusion. De plus, Wanewsletter est disponible dans plusieurs
+	langues.</p>
+
+	<p>Enfin, le script fonctionne aussi bien sur les bases de données MySQL que PostgreSQL ainsi que SQLite.</p>
+
+	<p>Liste détaillée des fonctionnalités&nbsp;:</p>
+
+	<h3>Installation</h3>
+
+	<ul>
+		<li>Script d’installation automatisée fourni</li>
+		<li>Script de mise à jour à partir des versions 2.2.x/2.3.x également fourni.</li>
+	</ul>
+
+	<h3>Sécurité</h3>
+
+	<ul>
+		<li>Système d’authentification pour accéder à l’administration</li>
+		<li>Algorithme de hachage des mots de passe cryptographiquement sécurisé</li>
+		<li>Gestion multi-utilisateurs possible</li>
+		<li>Système de permissions avançé, par liste et/ou action effectuée</li>
+		<li>Support SSL/TLS pour les connexions aux serveurs SMTP et POP</li>
+	</ul>
+
+	<h3>Gestion des listes</h3>
+
+	<ul>
+		<li>Gestion Multi-listes de diffusion</li>
+		<li>Module de statistiques. Inscriptions par jour selon le mois et l’année donnée
+		ou visualisation graphique du nombre d’abonnés selon les listes</li>
+		<li>Système de purge de la table des abonnés (pour les inscription non confirmées).
+		Possibilité d’automatiser cette tâche</li>
+		<li>Confirmation d’inscription par email pour chaque liste (possibilité d’activer/désactiver cette option)</li>
+		<li>Possibilité de gestion des inscriptions/confirmation/desinscription par email
+		(scan du compte <abbr title="Post Office Protocol" lang="en">POP</abbr> à l’aide d’une tâche cron)</li>
+	</ul>
+
+	<h3>Gestion des envois</h3>
+
+	<ul>
+		<li>Intégration de TinyMCE</li>
+		<li>Simulation d’envoi</li>
+		<li>Prévisualisation des newsletters avant envoi</li>
+		<li>Support des envois d’emails multi-formats</li>
+		<li>Chargement possible de modèles de newsletters locaux ou par <abbr title="Uniform Resource Locator" lang="en">URL</abbr></li>
+		<li>Possibilité de programmer les envois à l’aide d’une tâche cron</li>
+		<li>Deux types d’envoi disponibles&nbsp;: Un email par destinataire,
+		ou un email avec les destinataires en copie cachée, la liste étant le destinataire principal visible</li>
+		<li>Possibilité de sauvegarder une newsletter en cours de rédaction pour la reprendre plus tard</li>
+		<li>Possibilité de reprise d’un envoi et gestion par l’administrateur du nombre d’envois
+		effectués en un flot</li>
+		<li>Option d’envoi directement via un serveur <abbr title="Simple Mail Transfert Protocol" lang="en">SMTP</abbr> plutôt que par la
+		fonction <code>mail()</code> de <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr></li>
+		<li>Système d’archivage des newsletters précédemment envoyées</li>
+		<li>Mécanisme de sécurisation des envois (anti-plantage)</li>
+		<li>Support des signatures <abbr title="DomainKeys Identified Mail" lang="en">DKIM</abbr></li>
+	</ul>
+
+	<h3>Fichiers joints aux envois</h3>
+
+	<ul>
+		<li>Gestion des fichiers joints ou incorporés aux newsletters</li>
+		<li>Possibilité d’utiliser des fichiers joints au sein d’une newsletter en
+		<abbr title="HyperText Markup Language" lang="en">HTML</abbr> (fichiers embarqués)</li>
+		<li>Upload des fichiers joints ou ajout d’un fichier manuellement uploadé ou encore d’un fichier distant</li>
+	</ul>
+
+	<h3>Divers</h3>
+
+	<ul>
+		<li>Email d’alerte lors de nouvelles inscriptions et désinscriptions (option)</li>
+		<li>Module d’importation et d’exporation de masse de liste d’adresses emails</li>
+		<li>Support du format <abbr title="eXtensible Markup Language" lang="en">XML</abbr> dans les modules d’importation et d’exportation</li>
+		<li>Modules de sauvegarde et restauration des tables du script (fichiers .sql)</li>
+		<li>Support des formats de compression zip, gzip et bz2 pour les modules d’importation,
+		d’exportation, de sauvegarde et de restauration</li>
+		<li>Générateur de formulaire ou utilisation d’un formulaire fourni avec le script</li>
+		<li>Système de bannissement d’emails ou de types d’email. Fonctionne par listes</li>
+		<li>Système d’interdiction de certaines extensions de fichiers (pour les fichiers joints).
+		Fonctionne par listes</li>
+		<li>Affichage du nombre d’inscrits à une ou plusieurs listes sur une page du site</li>
+		<li>Petit module de recherche dans la liste des abonnés</li>
+		<li>Export des archives pour publication sur le site</li>
+		<li>Système de tags</li>
+	</ul>
+	</div></div>
+      <div id="config" class="block">
+<h2>Configuration requise</h2><div class="content">
+	
+
+	<p>Wanewsletter requiert <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> 5.4.4 au minimum
+	ainsi qu’une base de données de type MySQL, PostgreSQL ou SQLite.</p>
+
+	<h3>Base de données supportées</h3>
+
+	<ul>
+		<li>MySQL ≥ 5.0.7</li>
+		<li>PostgreSQL ≥ 8.3</li>
+		<li>SQLite 3</li>
+	</ul>
+
+	<p>Certaines fonctionnalités secondaires peuvent ne pas être disponibles selon
+	la configuration de votre serveur et/ou les options utilisées à la compilation de
+	<abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr>. Voici la liste des extensions <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> utilisées
+	dans diverses parties de Wanewsletter&nbsp;:</p>
+
+	<ul>
+		<li>L’extension mysql ou mysqli dans le cas d’une utilisation avec MySQL,
+		pgsql dans le cas de PostgreSQL, sqlite3 ou PDO et le driver sqlite dans le cas de SQLite</li>
+		<li>La librairie GD pour la génération des images des statistiques dans la section
+		<q>statistiques</q></li>
+		<li>L’extension <abbr title="File Transfer Protocol" lang="en">FTP</abbr> pour le chargement de fichiers à joindre à la newsletter
+		lorsqu’une adresse <samp>ftp://…</samp> est fournie</li>
+		<li>Les extensions simpleXML ou <abbr title="eXtensible Markup Language" lang="en">XML</abbr> pour le traitement de fichier
+		d’importation d’emails au format <abbr title="eXtensible Markup Language" lang="en">XML</abbr></li>
+		<li>Les extensions Zlib, Zip et Bz2 sont utilisées pour la compression des fichiers
+		d’export ou de sauvegarde et pour la décompression des fichiers compressés dans ces
+		formats fournis aux modules de restauration ou d’importation</li>
+		<li>L’extension OpenSSL pour le support des connexions SSL/TLS</li>
+		<li>L’extension JSON pour les sorties au format JSON des scripts cron.php,
+		extra.php, newsletter.php, ainsi que pour la gestion dynamique des boucles d’envoi</li>
+	</ul>
+	</div></div>
+      <div id="quick-install" class="block">
+<h2>Installation&nbsp;: Explications rapides</h2><div class="content">
+	
+
+	<p>Wanewsletter dispose d’un script d’installation simplifié au maximum afin
+	de permettre aux néophytes de pouvoir utiliser le script rapidement.
+	Voici brièvement les différentes étapes nécessaires à l’installation du script&nbsp;:</p>
+
+	<ul>
+		<li>Uploadez les fichiers contenus dans l’archive sur votre <abbr title="File Transfer Protocol" lang="en">FTP</abbr>
+		en respectant bien la structure des répertoires du script</li>
+		<li>Donnez les droits en écriture sur le répertoire <samp>data/</samp></li>
+		<li>Appelez le fichier <samp>install.php</samp> dans votre navigateur</li>
+		<li>Complétez le formulaire qui s’affiche puis lancez l’installation</li>
+		<li>Une fois l’installation effectuée, <strong>retirez les droits en écriture sur le
+		répertoire <samp>data/</samp></strong></li>
+		<li>Supprimez le script <samp>install.php</samp> devenu inutile</li>
+		<li>Donnez les droits en écriture sur les répertoires <samp>data/uploads/</samp>,
+		<samp>data/stats/</samp> et <samp>data/tmp/</samp></li>
+		<li>Configurez votre serveur web pour qu’il interdise l’accès au
+		répertoire <samp>data/</samp> depuis internet&nbsp;!</li>
+	</ul>
+	</div></div>
+      <div id="installation" class="block">
+<h2>Installation&nbsp;: Explications détaillées</h2><div class="content">
+	
+
+	<p>Pour installer correctement Wanewsletter, vous devez commencer par placer
+	les fichiers du script sur le serveur web. La plupart du temps, vous utiliserez
+	pour cela un client <abbr title="File Transfer Protocol" lang="en">FTP</abbr>. Tous les fichiers doivent être uploadés
+	en mode <var>ASCII</var>, hormis les quelques images utilisées par le script
+	qui se trouvent dans les dossiers <samp>images/</samp> et
+	<samp>templates/images/</samp>. Les images doivent être uploadées en mode binaire.</p>
+
+	<p>Ensuite, vous devez donner les droits en écriture sur le répertoire
+	<samp>data/</samp> afin que le script puisse créer le fichier de configuration
+	contenant les paramètres de connexion à la base de données qui seront fournis
+	via le formulaire d’installation.</p>
+
+	<p>Donnez également les droits en écriture sur les répertoires <samp>data/uploads/</samp>,
+	<samp>data/stats/</samp> et <samp>data/tmp/</samp>.</p>
+
+	<p><em>Explications&nbsp;:</em></p>
+
+	<p>Le répertoire <samp>data/uploads/</samp> est destiné à contenir les divers fichiers
+	que vous joindrez éventuellement à vos envois. Pour que le script puisse ajouter
+	correctement ces fichiers dans le dossier <samp>data/uploads/</samp>, celui-ci doit être
+	accessible en écriture.</p>
+
+	<p>Concernant le répertoire <samp>data/tmp/</samp>, reportez-vous à l’entrée
+	correspondante dans la <abbr title="Frequently Asked Questions" lang="en">FAQ</abbr> du script.</p>
+
+	<p>Enfin, le répertoire <samp>data/stats/</samp> contiendra les fichiers de statistiques
+	de Wanewsletter nécessaires au module de statistiques. Ce répertoire est inutile si
+	la librairie GD n’est pas disponible sur votre serveur (le module de statistiques
+	étant alors désactivé).</p>
+
+	<p>Appelez ensuite le script d’installation <samp>install.php</samp>
+	de Wanewsletter dans votre navigateur.</p>
+
+	<p>Vous arrivez maintenant sur le formulaire d’installation. Notez que si vous changez
+	de langue avant de cliquer sur le bouton de validation, vous retomberez sur la même
+	page, mais dans la langue choisie.</p>
+
+	<p>Le nom du serveur de base de données, la plupart du temps, est <var>localhost</var>
+	mais cela peut être autre chose. Si vous n’avez pas connaissance du nom de votre base
+	de données et/ou des paramètres d’accés nécessaires, renseignez vous auprès de votre
+	hébergeur. Notez que seul le nom de la base de données est nécessaire. Par défaut,
+	la tentative de connexion se fait sur <samp>localhost</samp> et avec l’utilisateur
+	faisant tourner le serveur web. Il vous est également demandé un prefixe pour les
+	tables, ceci afin d’éviter d’éventuels conflits avec d'autre tables déja présentes,
+	et qui auraient le même nom qu’une des tables de Wanewsletter.</p>
+
+	<p>Vous devez ensuite entrer des paramètres pour l’administration du script, son
+	accès étant protégé. Vous pourrez ultérieurement ajouter d’autres utilisateurs
+	avec des droits d’accès personnalisés.</p>
+
+	<p>Une fois que l’installation est terminée, <strong>retirez les droits
+	en écriture sur le répertoire <samp>data/</samp></strong> (mais pas sur
+	ses sous-dossiers) et supprimez le fichier <samp>install.php</samp> du
+	serveur. Il vous suffit de suivre le lien donné sur la page de résultat
+	de l’installation pour accéder à l’écran de connexion à l’administration.
+	Entrez vos identifiants de connexion fournis lors de l’installation
+	et commencez à gérer vos listes et vos abonnés&#8201;!</p>
+
+	<p>Important&nbsp;: Configurez votre serveur web pour qu’il interdise
+	l’accès au répertoire <samp>data/</samp> depuis internet&nbsp;!</p>
+	</div></div>
+      <div id="upgrade-from-2.2" class="block">
+<h2>Mise à jour d’une version 2.2.x ou plus récente</h2><div class="content">
+	
+
+	<p>Pour mettre à jour votre version&nbsp;:</p>
+
+	<ul>
+		<li>Téléchargez la nouvelle version</li>
+		<li>Remplacez les fichiers de votre version par ceux de la nouvelle
+		(gardez bien sûr le contenu du répertoire <samp>data/</samp>)</li>
+		<li>Donnez les droits en écriture sur le fichier <samp>data/config.inc.php</samp></li>
+		<li>Appelez le script <samp>admin/upgrade.php</samp> dans votre navigateur</li>
+		<li>Saisissez si nécessaire vos identifiants de connexion avant d’accéder
+		au script de mise à jour. Il ne vous reste plus qu’à lancer la procédure</li>
+	</ul>
+
+	<p>Une fois la mise à jour terminée, retirez les droits en écriture sur le fichier
+	<samp>data/config.inc.php</samp>.</p>
+
+	<p><strong>Note&nbsp;:</strong> Il est <strong>fortement recommandé</strong>
+	de faire une sauvegarde des tables du script avant de lancer la mise à jour&#8201;!</p>
+	</div></div>
+      <div id="upgrade-from-2.0" class="block">
+<h2>Mise à jour d’une version 2.0.x/2.1.x</h2><div class="content">
+	
+
+	<p>À partir de la branche 2.4.x, Wanewsletter n’offre plus de script de mise
+	à jour pour ces anciennes versions. Vous pouvez cependant faire une mise à jour
+	en deux temps, d’abord vers la version 2.3.4, puis de là, mettre à jour
+	vers la présente version.</p>
+	</div></div>
+      <div id="l10n" class="block">
+<h2>Traduction de l’application</h2><div class="content">
+	
+
+	<p>Mon but étant de rendre Wanewsletter disponible au plus grand nombre, le script
+	a été développé de manière à être disponible dans plusieurs langues, pas seulement
+	en français. Les langues disponibles peuvent être trouvées sur la
+	<a href="http://phpcodeur.net/wascripts/wanewsletter/telecharger" hreflang="fr">
+	page de téléchargement</a> de Wanewsletter.</p>
+
+	<p>Pour installer une langue, c’est très simple. Décompressez l’archive puis
+	placez le dossier résultant (ex: sp/, it/) dans le répertoire <samp>languages/</samp> de
+	Wanewsletter. Il ne vous reste plus alors qu’à sélectionner cette langue dans la
+	configuration du script&#8201; :¬) (le français et l’anglais sont livrés par défaut avec
+	le script)</p>
+
+	<p>Si vous avez des connaissances dans une langue dans laquelle n’est pas traduit
+    Wanewsletter, et que vous souhaitez aider à promouvoir Wanewsletter, c’est très simple.
+    Récupérez le paquet de langue de votre choix, puis effectuez la traduction et envoyez-là
+	à <a href="mailto:wascripts%40phpcodeur.net">wascripts&#40;phpcodeur.net</a>.
+	La nouvelle langue sera alors mise à disposition en téléchargement, après vérification.</p>
+	</div></div>
+      <div id="problems" class="block">
+<h2>Problèmes connus</h2><div class="content">
+	
+
+	<ul>
+		<li>Sur free.fr, les envois d’emails (en nombre de destinataires) sont limités
+		à 2000 par semaine (voir <a href="http://www.free.fr/assistance/943.html#step-946" hreflang="fr">
+		<abbr title="Frequently Asked Questions" lang="en">FAQ</abbr> free</a>)</li>
+	</ul>
+	</div></div>
+      <div id="contrib" class="block">
+<h2>Contribuer au projet</h2><div class="content">
+	
+
+	<p>Vous pouvez contribuer à Wanewsletter, et ce, de différentes façons&nbsp;:</p>
+
+	<p>Vous pouvez traduire Wanewsletter dans une langue dans laquelle le script n’est
+	pas encore disponible. Cela permettra à de nombreux utilisateurs de Wanewsletter de
+	disposer d’une interface d’administration dans leur langue native et cela favorisera
+	la diffusion de Wanewsletter dans le monde. Consultez la section spécifique aux
+	<a href="#l10n">traductions</a>.</p>
+
+	<p>Si vous êtes un utilisateur satisfait de Wanewsletter, souhaitez remercier son
+	développeur et soutenir son développement, vous pouvez également faire un don
+	via le service Paypal. Le formulaire de don est disponible dans le menu à droite sur
+	la <a href="http://phpcodeur.net/wascripts/wanewsletter/">page de présentation</a>
+	de Wanewsletter.</p>
+
+	<p>Ou bien vous pouvez envoyer un chèque à l’adresse suivante, en indiquant, si possible,
+	si vous souhaitez apparaitre ou non dans la liste des donateurs&nbsp;:</p>
+
+	<address id="address">M. Aurélien Maille<br />
+	3, quai Valin<br />
+	Résidence «&nbsp;Les éclusiers&nbsp;»<br />
+	17&nbsp;000 La Rochelle</address>
+	</div></div>
+      <div id="packages" class="block">
+<h2>Librairies tierces</h2><div class="content">
+	
+
+	<p>Wanewsletter utilise quelques librairies supplémentaires pour assurer
+	son bon fonctionnement. Ces librairies sont installées dans le dossier
+	<samp>vendor/</samp> de Wanewsletter et sont gérées grâce au gestionnaire
+	de dépendances <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> <a href="https://getcomposer.org/">Composer</a>
+	(d’où la présence des fichiers composer.json et composer.lock à la racine).
+	Voici la liste des librairies utilisées&nbsp;:</p>
+
+	<dl>
+		<dt><a href="https://github.com/tchwork/utf8">patchwork/utf8</a></dt>
+		<dd>Librairie proposant plusieurs outils pour mieux gérer l’UTF-8
+		et simulant les extensions <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> <strong>Iconv</strong> et
+		<strong>Mbstring</strong> si elles ne sont pas installées sur le serveur.</dd>
+		<dt><a href="https://github.com/ircmaxell/password_compat">ircmaxell/password-compat</a></dt>
+		<dd>Librairie de compatibilité pour <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> 5.4, implémentant
+		l’<abbr title="Application Programming Interface" lang="en">API</abbr> password, apparue dans <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> 5.5.</dd>
+		<dt><a href="https://github.com/wascripts/wamailer">wascripts/wamailer</a></dt>
+		<dd>Librairie de formatage et d’envoi d’emails, écrite par mes soins.</dd>
+		<dt><a href="https://github.com/elkuku/ConsoleProgressBar">elkuku/console-progressbar</a></dt>
+		<dd>Petite librairie permettant l’affichage d’une barre de progression
+		animée en ligne de commande.</dd>
+	</dl>
+	</div></div>
+      <div id="author" class="block">
+<h2>Notes de l’auteur</h2><div class="content">
+	
+
+	<p>Ce script est diffusé sous <a href="http://phpcodeur.net/wascripts/GPL">
+	licence <abbr title="GNU General Public Licence" lang="en">GPL</abbr></a>.
+	Concrètement, cela signifie que vous pouvez l’utiliser, le modifier ou le redistribuer
+	comme bon vous semble, du moment que les copyright et mentions d’auteur restent
+	tels quels. Lisez attentivement la <a href="http://phpcodeur.net/wascripts/GPL">
+	licence <abbr title="GNU General Public Licence" lang="en">GPL</abbr></a> pour plus de détails.</p>
+
+	<p>Ce script ne contient aucune forme de publicité dans les emails (mentions
+	en bas des emails ou autre). Mais vous pouvez, si vous le désirez et êtes
+	satisfait de ce script, mettre un lien vers le site phpCodeur quelque part sur
+	votre site (en bas du formulaire d’inscription par exemple). Un bouton 88×31
+	de Wanewsletter est également disponible dans le répertoire <samp>images/</samp>
+	pour ceux qui le souhaitent.</p>
+	</div></div>
+    </div>
+    <hr />
+    <address id="footer">
+Powered by <a href="http://phpcodeur.net/" hreflang="fr" title="Site officiel de Wanewsletter">
+phpCodeur</a> © 2002–2016 | Wanewsletter 3.0.0<br />
+Ce script est distribué librement sous <a href="http://phpcodeur.net/wascripts/GPL" hreflang="fr">licence <abbr title="GNU General Public Licence" lang="en">GPL</abbr></a></address>
+  </body>
+</html>

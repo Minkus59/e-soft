@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="Robots" content="noindex" />
+    <title>FAQ – Wanewsletter</title>
+    <link rel="index" href="#toc" />
+    <link rel="chapter" href="#display_num_subscribers" title="Comment afficher le nombre d’inscrits sur mon site&#8201;?" />
+    <link rel="chapter" href="#check_update" title="Comment être prévenu de la sortie d’une nouvelle version&#8201;?" />
+    <link rel="chapter" href="#import" title="Comment fonctionne l’importation d’emails&#8201;?" />
+    <link rel="chapter" href="#multi_users" title="Comment gérer le script à plusieurs&#8201;?" />
+    <link rel="chapter" href="#where_is_form" title="Mais où se trouve le formulaire d’inscription&#8201;?" />
+    <link rel="chapter" href="#send_methods" title="Pourquoi y a t-il deux méthodes d’envoi&#8201;?" />
+    <link rel="chapter" href="#data_access" title="Protection du répertoire data" />
+    <link rel="chapter" href="#uploads" title="Impossible de joindre des fichiers à mes newsletter&#8201;!" />
+    <link rel="chapter" href="#mailing_quality" title="Qualité de livraison des emails" />
+    <link rel="chapter" href="#dkim" title="Signer les emails avec DKIM" />
+    <link rel="chapter" href="#smtp_server" title="Utilisation d’un serveur SMTP pour les envois d’emails" />
+    <link rel="chapter" href="#cron" title="Envoi des newsletters avec cron" />
+    <link rel="chapter" href="#custom_tags" title="Utilisation de tags personnalisés" />
+    <link rel="chapter" href="#language_form" title="Définir une langue selon le formulaire" />
+    <link rel="chapter" href="#sqlite" title="Utiliser Wanewsletter avec SQLite" />
+    <link rel="chapter" href="#contribute" title="Comment contribuer au projet Wanewsletter&#8201;?" />
+    <link rel="chapter" href="#disable_check_links" title="Est-il possible de désactiver la vérification de présence du tag {LINKS}&#8201;?" />
+    <link rel="chapter" href="#emails_templates" title="Où se trouvent les modèles des emails d’inscription, confirmation et désinscription&#8201;?" />
+    <link rel="chapter" href="#url_templates" title="Le chargement de newsletters par URL, c’est quoi&#8201;?" />
+    <link rel="chapter" href="#no_language" title="Wanewsletter n’est pas disponible dans ma langue maternelle, que faire&#8201;?" />
+    <link rel="chapter" href="#edit_form" title="Comment modifier la présentation du formulaire par défaut&#8201;?" />
+    <link rel="chapter" href="#incomplete_links" title="Les liens de confirmation dans les emails sont incomplets, pourquoi&#8201;?" />
+    <link rel="chapter" href="#external_data" title="Inclure du contenu externe dans la newsletter" />
+    <link rel="chapter" href="#store_more_data" title="Stocker des données supplémentaires à l’inscription" />
+    <link rel="chapter" href="#custom_css" title="Ajouter une feuille de styles CSS personnalisée" />
+    <link rel="stylesheet" href="./wadoc.css" />
+  </head>
+  <body>
+    <div id="smallheader">
+      <h1>FAQ – Wanewsletter</h1>
+    </div>
+    <div id="global">
+      <p id="preface">Voici une liste des questions les plus fréquemment posées, et les
+	réponses correspondantes.</p>
+      <div class="block">
+        <h2>Sommaire</h2>
+        <ol id="toc">
+          <li>
+            <a href="#display_num_subscribers">Comment afficher le nombre d’inscrits sur mon site&#8201;?</a>
+          </li>
+          <li>
+            <a href="#check_update">Comment être prévenu de la sortie d’une nouvelle version&#8201;?</a>
+          </li>
+          <li>
+            <a href="#import">Comment fonctionne l’importation d’emails&#8201;?</a>
+          </li>
+          <li>
+            <a href="#multi_users">Comment gérer le script à plusieurs&#8201;?</a>
+          </li>
+          <li>
+            <a href="#where_is_form">Mais où se trouve le formulaire d’inscription&#8201;?</a>
+          </li>
+          <li>
+            <a href="#send_methods">Pourquoi y a t-il deux méthodes d’envoi&#8201;?</a>
+          </li>
+          <li>
+            <a href="#data_access">Protection du répertoire data</a>
+          </li>
+          <li>
+            <a href="#uploads">Impossible de joindre des fichiers à mes newsletter&#8201;!</a>
+          </li>
+          <li>
+            <a href="#mailing_quality">Qualité de livraison des emails</a>
+          </li>
+          <li>
+            <a href="#dkim">Signer les emails avec DKIM</a>
+          </li>
+          <li>
+            <a href="#smtp_server">Utilisation d’un serveur SMTP pour les envois d’emails</a>
+          </li>
+          <li>
+            <a href="#cron">Envoi des newsletters avec cron</a>
+          </li>
+          <li>
+            <a href="#custom_tags">Utilisation de tags personnalisés</a>
+          </li>
+          <li>
+            <a href="#language_form">Définir une langue selon le formulaire</a>
+          </li>
+          <li>
+            <a href="#sqlite">Utiliser Wanewsletter avec SQLite</a>
+          </li>
+          <li>
+            <a href="#contribute">Comment contribuer au projet Wanewsletter&#8201;?</a>
+          </li>
+          <li>
+            <a href="#disable_check_links">Est-il possible de désactiver la vérification de présence du tag {LINKS}&#8201;?</a>
+          </li>
+          <li>
+            <a href="#emails_templates">Où se trouvent les modèles des emails d’inscription, confirmation et désinscription&#8201;?</a>
+          </li>
+          <li>
+            <a href="#url_templates">Le chargement de newsletters par URL, c’est quoi&#8201;?</a>
+          </li>
+          <li>
+            <a href="#no_language">Wanewsletter n’est pas disponible dans ma langue maternelle, que faire&#8201;?</a>
+          </li>
+          <li>
+            <a href="#edit_form">Comment modifier la présentation du formulaire par défaut&#8201;?</a>
+          </li>
+          <li>
+            <a href="#incomplete_links">Les liens de confirmation dans les emails sont incomplets, pourquoi&#8201;?</a>
+          </li>
+          <li>
+            <a href="#external_data">Inclure du contenu externe dans la newsletter</a>
+          </li>
+          <li>
+            <a href="#store_more_data">Stocker des données supplémentaires à l’inscription</a>
+          </li>
+          <li>
+            <a href="#custom_css">Ajouter une feuille de styles CSS personnalisée</a>
+          </li>
+        </ol>
+      </div>
+      <hr />
+      <div id="display_num_subscribers" class="block">
+<h2>Comment afficher le nombre d’inscrits sur mon site&#8201;?</h2><div class="content">
+	
+
+	<p>Vous pouvez utiliser pour cela le script <samp>options/extra.php</samp>.
+	Insérez simplement cette ligne de code à l’endroit où vous voulez
+	afficher le nombre d’inscrits (prenez soin de mettre la bonne adresse vers le
+	fichier <samp>extra.php</samp>)&nbsp;:</p>
+
+	<pre><code>&lt;script type="text/javascript" src="http://www.yourdomaine.com/rep/options/extra.php?liste=[ID]"&gt;&lt;/script&gt;</code></pre>
+
+	<p>Vous devez remplacer <code class="constant">[ID]</code> par le numéro identifiant
+	de la liste de diffusion dont vous voulez afficher le nombre d’inscrits. Vous pouvez
+	également indiquer plusieurs identifiants de liste en les séparant par un signe plus.</p>
+
+	<p>Le nombre d’inscrits sera affiché tel quel (appel à <code>document.write()</code>).</p>
+
+	<p>Alternativement, vous pouvez indiquer le nom d’une variable destinée à recevoir l’information.
+	Pour cela, ajoutez par exemple <samp>&amp;use-variable=myObject.myVariable</samp> dans l’URL d’appel.
+	Le script renverra alors le code Javascript <code>myObject.myVariable = X;</code>.</p>
+
+	<p>Troisième solution, faites un appel AJAX sur le script extra.php en ajoutant
+	<samp>&amp;output=json</samp> dans l’URL d’appel. Le script renvoie alors
+	<samp>{"numSubscribe":"X"}</samp>.</p>
+	</div></div>
+      <div id="check_update" class="block">
+<h2>Comment être prévenu de la sortie d’une nouvelle version&#8201;?</h2><div class="content">
+	
+
+	<p>À partir de la version 2.4-beta2, le script peut vérifier si une mise à jour
+	est disponible. Un lien "Vérifier les mises à jour" est présent sur la page
+	d’accueil.</p>
+	</div></div>
+      <div id="import" class="block">
+<h2>Comment fonctionne l’importation d’emails&#8201;?</h2><div class="content">
+	
+
+	<p>Un utilitaire d’importation d’emails est disponible dans la rubrique "outils"
+	de Wanewsletter. Il vous permettra, si vous avez les droits suffisants, d’importer
+	des emails directement via un champ texte, en spécifiant l’adresse du fichier sur
+	le serveur, ou via l’upload d’un fichier contenant les emails, si votre hébergeur
+	autorise l’upload de fichiers.</p>
+
+	<p>L’utilitaire accepte également les fichiers au format <abbr title="eXtensible Markup Language" lang="en">XML</abbr> tels que
+	générés par l’outil d’exportation. Un tel fichier a la structure suivante&nbsp;:</p>
+
+	<pre><code>&lt;?xml version="1.0"?&gt;
+&lt;!-- Date : [la date] GMT - Format : [le format] --&gt;
+&lt;Wanliste&gt;
+	&lt;email&gt;address1@example.tld&lt;/email&gt;
+	&lt;email&gt;address2@example.tld&lt;/email&gt;
+	&lt;email&gt;…&lt;/email&gt;
+&lt;/Wanliste&gt;</code></pre>
+
+	<p>L’utilitaire d’importation  peut importer jusqu’à 10000 emails en une opération.
+	Si vous souhaitez importer un plus gros volume d’emails sans avoir à réaliser
+	l’opération en plusieurs fois, vous pouvez modifier la valeur de la constante
+	<code class="constant">MAX_IMPORT</code> dans le fichier <samp>includes/constantes.php</samp>
+	mais ce n’est pas recommandé si vous êtes en hébergement mutualisé ou que vous utilisez SQLite.</p>
+
+	<p>Le script <samp>contrib/wanewsletter</samp>, dédié à une utilisation en ligne
+	de commande, permet également de réaliser des importations d’emails. Les limitations
+	de durée des scripts php dans le cadre d’un serveur web ne s’appliquent pas dans ce cas.</p>
+
+	<p>Les adresses emails sont vérifiées syntaxiquement et les doublons sont éliminés.
+	Si des emails sont refusés, le script génèrera un rapport
+	dans le répertoire <samp>data/tmp/</samp> du script et vous proposera également de le
+	visualiser.</p>
+	</div></div>
+      <div id="multi_users" class="block">
+<h2>Comment gérer le script à plusieurs&#8201;?</h2><div class="content">
+	
+
+	<p>Wanewsletter peut être géré par plusieurs utilisateurs. Vous pouvez modifier
+	les permissions des utilisateurs via le profil de l’utilisateur en question.</p>
+
+	<p>Il y a deux niveaux généraux&nbsp;: administrateur et utilisateur. Les administateurs
+	ont automatiquement tous les droits, quelques que soient les réglages sur les droits
+	individuels. Un utilisateur pourra faire tout ce qui lui aura été permis (voir,
+	editer, supprimer, envoyer des newsletter, importer, exporter, bannir, et joindre
+	des fichiers) et ce, pour chaque liste.</p>
+
+	<p>Pour ajouter un utilisateur, rendez-vous dans la section "Utilisateurs"
+	puis "ajouter un utilisateur"</p>
+	</div></div>
+      <div id="where_is_form" class="block">
+<h2>Mais où se trouve le formulaire d’inscription&#8201;?</h2><div class="content">
+	
+
+	<p>Vous disposez d’un formulaire par défaut, le fichier <samp>subscribe.php</samp>.
+	Ce fichier affiche un formulaire classique, et une liste de
+	sélection affichant les noms de toutes les listes de diffusion publiques créées.</p>
+
+	<p>Le script dispose également d’un générateur de formulaire dans la section
+	"outils". Celui-ci vous permettra, pour une liste donnée, de générer le formulaire
+	adéquat. Il ne vous restera qu’à placer ce formulaire où vous voulez sur le site,
+	de placer le code d’inclusion de <samp>newsletter.php</samp> (code également fourni
+	par le form. generator) et d’indiquer dans les réglages de la liste de diffusion
+	en question l’adresse de traitement formulaire (en principe, la même que celle
+	de l’attribut <em>action</em> de la balise <em>form</em>).</p>
+
+	<p>Notez que vous pouvez ajouter la variable <code>$textCharset</code> dans le code
+	<abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> d’inclusion de <samp>newsletter.php</samp>. Cela influera sur
+	le codage de caractères du message de réponse renvoyé par <samp>newsletter.php</samp>.</p>
+
+	<p>Une dernière solution (disponible à partir de la version 2.2.0) consiste pour
+	le visiteur à envoyer un email à l’adresse email d’une liste, avec comme sujet de
+	l’email "Inscription" (insensible à la casse). Dans ce cas, vous devez avoir accès à
+	cron (serveurs unix et équivalents) ou faire appel aux services gratuits de
+	<a href="http://www.webcron.org/" hreflang="fr" title="Webcron&nbsp;: Service de tâches automatisées">webcron.org</a>
+	pour automatiser l’appel au fichier <samp>cron.php</samp> qui se trouve dans le
+	répertoire <samp>options/</samp> du script. Ce script se chargera d’effectuer les tâches
+	nécessaires (inscription, désinscription, changement de format, confirmation d’inscription..)
+	selon les emails reçus.</p>
+
+	<p>Pour une désinscription, l’abonné devra envoyer un email avec pour sujet "Desinscription",
+	il recevra alors un email lui demandant de renvoyer un autre
+	email avec le meme sujet, et le code de son compte, qui lui aura été fourni (par sécurité).
+	Pour la confirmation d’inscription (si la liste le demande), ce devra être un email avec
+	pour sujet "confirmation", et pour le changement de format, le sujet devra être "setformat".</p>
+
+	<p>Si plusieurs de vos listes de diffusion utilisent la même adresse email, il risque
+	d’y avoir conflit, le script ne sachant pas à quelle liste seront adressés les emails
+	du compte <abbr title="Post Office Protocol" lang="en">POP</abbr>.
+	Dans ce cas, il vous faudra créer un alias de l’adresse en question avec le panneau de
+	gestion de votre hébergement, si vous en avez la possibilité. Exemple&nbsp;:</p>
+
+	<p>Vous avez deux listes utilisant l’adresse email mailing@domaine.com. Il vous faudra
+	créer deux alias renvoyant sur mailing@domaine.com et indiquer ces alias dans les
+	réglages des listes concernées. Par exemple&nbsp;: mailing-1@domaine.com et
+	mailing-2@domaine.com</p>
+
+	<p>Une alternative aux alias est d'utiliser le signe plus dans vos adresses email utilisées
+	comme alias, si votre hébergeur le permet. Par exemple&nbsp;: mailing+liste1@domain.tld
+	et mailing+liste2@domain.tld permettent de recevoir des emails sur la boîte mailing@domain.tld.<br />
+	L’avantage est de ne pas avoir d’alias à créer. Ça marche tout de suite.</p>
+
+	<p>Dans le cas de l’option "cron", vous devrez indiquer les paramètres d’accès au
+	compte <abbr title="Post Office Protocol" lang="en">POP</abbr> de l’adresse email de la liste en question, et
+	indiquer l’utilisation de l’option "cron" avec le bouton radio adéquat
+	(section "listes" de l’administration).</p>
+
+	<p>Enfin, cron devra appeller une adresse de ce type&nbsp;:<br />
+	<kbd>http://www.yourdomain.com/rep/newsletter/options/cron.php?mode=validate&amp;liste=<code class="constant">[ID_de_la_liste]</code></kbd>
+	</p>
+	</div></div>
+      <div id="send_methods" class="block">
+<h2>Pourquoi y a t-il deux méthodes d’envoi&#8201;?</h2><div class="content">
+	
+
+	<p>Wanewsletter dispose de deux méthodes d’envoi pour pouvoir être utilisé par
+	le plus grand nombre. En effet, certains hébergeurs limitent le nombre d’emails
+	envoyés par jour, ou n’acceptent qu’un destinataire par email.</p>
+
+	<p>Il est recommandé d’utiliser la méthode d’envoi par défaut, c’est à dire l’envoi
+	d’un email à chaque abonné.</p>
+	</div></div>
+      <div id="data_access" class="block">
+<h2>Protection du répertoire data</h2><div class="content">
+	
+
+	<p>Le répertoire <samp>data/</samp> sert à stocker toute sorte de données
+	utilisées par Wanewsletter&nbsp;:</p>
+
+	<ul>
+		<li>Données transitoires dans <samp>data/tmp</samp></li>
+		<li>Les fichiers joints dans <samp>data/uploads</samp></li>
+		<li>Les bases SQLite, par défaut dans <samp>data/db</samp>, si
+		Wanewsletter est utilisé avec ce type de base de données</li>
+		<li>Le journal d’erreurs dans <samp>data/logs</samp> lorsque activé</li>
+		<li>Les fichiers config.inc.php et, éventuellement, tags.inc.php,
+		ainsi que leurs modèles *.sample.php à la racine de <samp>data/</samp></li>
+	</ul>
+
+	<p><strong>Aucune donnée</strong> présente dans le répertoire <samp>data/</samp>
+	n’a vocation à être accédé au travers du serveur <abbr title="Hyper Text Transfer Protocol" lang="en">HTTP</abbr>. Il est
+	donc important (et carrément critique si vous utilisez une base SQLite) de
+	restreindre l’accès à ce répertoire.</p>
+
+	<p>Des fichiers index.html sont présents pour empêcher un
+	éventuel listage automatique du contenu de ces répertoires, et un fichier
+	.htaccess est présent à la racine du répertoire <samp>data/</samp> avec la
+	directive <samp>Deny from all</samp>. Pour les serveurs <abbr title="Hyper Text Transfer Protocol" lang="en">HTTP</abbr>
+	autres qu’Apache, je vous invite à consulter leur documentation pour
+	protéger efficacement le répertoire <samp>data/</samp>.</p>
+
+	<p>De plus, les sous-répertoires <samp>tmp/</samp>, <samp>logs/</samp>
+	et <samp>stats/</samp> peuvent être renommés ou déplacés.
+	Il faut simplement définir les entrées correspondantes 'tmp_dir', 'logs_dir'
+	et 'stats_dir' du tableau <code>$nl_config</code> dans le fichier de
+	configuration <samp>data/config.inc.php</samp>. Consultez le modèle de
+	fichier de configuration <samp>data/config.sample.inc.php</samp>
+	pour l’exemple.</p>
+
+	<p>Quant aux bases de données SQLite, Wanewsletter n’en utilise qu’une et
+	c’est vous qui la définissez à l’installation. L’emplacement par défaut
+	qui vous est proposé est <samp>data/db/wanewsletter.sqlite</samp>, mais
+	rien ne vous empêche de changer ce chemin par un autre, pointant en dehors
+	du document root de votre site.</p>
+
+	<p>Enfin, le sous-répertoire <samp>uploads</samp> peut être redéfini via
+	la page de configuration dans l’administration du script.</p>
+	</div></div>
+      <div id="uploads" class="block">
+<h2>Impossible de joindre des fichiers à mes newsletter&#8201;!</h2><div class="content">
+	
+
+	<p>Dans le cas où l’upload de fichier est autorisé sur votre serveur, cela peut
+	être dù au fait que le script n’a pas les droits en écriture sur le répertoire de
+	stockage des fichiers joints. Vérifiez donc le chmod ou les attributs
+	de ce répertoire.</p>
+
+	<p>Si l’upload n’est pas autorisé, le script n’ajoute le fichier à la liste des
+	fichiers joints que si celui ci est déja présent sur le serveur, dans le répertoire
+	de stockage des fichiers joints. Uploadez vos fichiers joints avec votre client
+	<abbr title="File Transfer Protocol" lang="en">FTP</abbr> avant d’ajouter vos fichiers joints via le formulaire.</p>
+	</div></div>
+      <div id="mailing_quality" class="block">
+<h2>Qualité de livraison des emails</h2><div class="content">
+	
+
+	<p>Pour que vos lettres aient plus de chance de parvenir dans la boîte de
+	réception de vos destinataires, vous devez vous assurer de plusieurs
+	points comme : ne pas apparaître dans des listes noires, émettre des
+	lettres <abbr title="HyperText Markup Language" lang="en">HTML</abbr> de bonne qualité (ratio texte/images, doctype,
+	voire balise &lt;title&gt;, ...), et d’autres règles de base.</p>
+
+	<p>Il existe sur Internet énormément d’articles sur le sujet, donc vous devriez
+	en trouver sans peine. Je voudrais juste mentionner un outil que j’ai
+	trouvé personnellement très bien fait&nbsp;:
+	<a href="http://www.mail-tester.com/">mail-tester.com</a>.</p>
+
+	<p>Pour faire le test, il vous suffit de préparer une nouvelle lettre dans
+	l’interface de Wanewsletter puis, quand elle est prête, vous rendre sur
+	le site <a href="http://www.mail-tester.com/">mail-tester.com</a>, copier
+	l’adresse email qui vous est proposée et la coller dans le champ "Faire
+	un test d’envoi" de la page envoi de Wanewsletter. Une fois que l’email
+	de test a été envoyé, il ne vous reste qu’à retourner sur la page de
+	<a href="http://www.mail-tester.com/">mail-tester.com</a> et vérifier
+	votre score.</p>
+	</div></div>
+      <div id="dkim" class="block">
+<h2>Signer les emails avec DKIM</h2><div class="content">
+	
+
+	<p>Wanewsletter peut signer les emails sortants en utilisant la norme <abbr title="DomainKeys Identified Mail" lang="en">DKIM</abbr>.
+	Pour plus d’informations sur cette norme, consultez le lien suivant&nbsp;:
+	<a href="http://www.dkim.org/">http://www.dkim.org/</a></p>
+
+	<p>En pré-requis, vous devez avoir créé votre paire de clés et déclaré
+	votre clé publique dans votre zone <abbr title="Domain Name Server" lang="en">DNS</abbr>.</p>
+
+	<p>Vous devez ensuite ajouter quelques entrées de configuration dans votre
+	fichier <samp>data/config.inc.php</samp> (un exemple est aussi disponible
+	dans le fichier <samp>data/config.sample.inc.php</samp>)&nbsp;:</p>
+
+	<pre><code>$nl_config['mailer']['dkim']['selector'] = 'le_selecteur';
+$nl_config['mailer']['dkim']['domain']   = 'votre_domaine';
+$nl_config['mailer']['dkim']['privkey']  = '/chemin/vers/la/clé.key';
+</code></pre>
+
+	<p>L’entrée 'privkey' accepte aussi directement la clé au format PEM.
+	Si la clé est protégée par un passphrase, vous devez spécifier ce dernier
+	avec l’entrée <code>$nl_config['mailer']['dkim']['passphrase']</code>.</p>
+
+	<p>D’autres options de configuration pour le module <abbr title="DomainKeys Identified Mail" lang="en">DKIM</abbr> de
+	Wamailer sont disponibles. Consultez la documentation de ce dernier
+	(fichier <samp>vendor/wascripts/wamailer/lib/Tools/README.dkim.md</samp>).</p>
+	</div></div>
+      <div id="smtp_server" class="block">
+<h2>Utilisation d’un serveur SMTP pour les envois d’emails</h2><div class="content">
+	
+
+	<p>Wanewsletter peut dialoguer directement avec un serveur <abbr title="Simple Mail Transfert Protocol" lang="en">SMTP</abbr>
+	pour envoyer vos emails, plutôt que d’utiliser la fonction mail() de PHP.</p>
+
+	<p>Cela devient particulièrement avantageux si votre serveur tourne sur Windows.
+	En effet, dans ce cas, la fonction mail() ouvre une connexion réseau vers le
+	serveur <abbr title="Simple Mail Transfert Protocol" lang="en">SMTP</abbr> indiqué dans la configuration de <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr>.
+	Le problème est qu’elle ouvre et ferme une connexion à chaque appel,
+	ce qui n’est évidemment pas du tout optimal lorsqu’il s’agit d’envoyer
+	plusieurs emails à la chaîne&nbsp;!</p>
+
+	<p>Wamailer, la librairie de formatage et d’envoi d’emails, supporte
+	les méthodes d’authentification <abbr title="Simple Authentication and Security Layer" lang="en">SASL</abbr> 'CRAM-MD5', 'PLAIN' et 'LOGIN'.
+	D’autres méthodes seront peut-être supportées dans l’avenir.</p>
+
+	<p>Le protocole de sécurisation <abbr title="Transport Layer Security" lang="en">TLS</abbr> est aussi supporté
+	(sous réserve que l’extension <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> OpenSSL soit présente),
+	et il est bien sûr recommandé de l’utiliser.</p>
+
+	<p>Notez qu’en cas d’utilisation de <abbr title="Transport Layer Security" lang="en">TLS</abbr>, des ajustements
+	peuvent être nécessaires pour accepter le certificat présenté par le serveur
+	<abbr title="Simple Mail Transfert Protocol" lang="en">SMTP</abbr>. Par exemple, si c’est un certificat auto-signé, il vous faudra
+	autoriser spécifiquement ce type de certificat dans le fichier de configuration&nbsp;:</p>
+
+	<pre><code>$nl_config['mailer']['ssl']['allow_self_signed'] = true;</code></pre>
+
+	<p>Comme précisé dans le fichier <samp>data/config.sample.inc.php</samp>, le
+	tableau 'ssl' accepte toutes les entrées décrites dans la documentation
+	<abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> sur les contextes de flux <abbr title="Secure Sockets Layer" lang="en">SSL</abbr>&nbsp;:
+	<a href="http://php.net/manual/en/context.ssl.php" title="Contexte de flux SSL">http://php.net/manual/en/context.ssl.php</a>.</p>
+
+	<p>Dernier point, <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> ne vérifie par défaut la validité du
+	certificat serveur d’un flux crypté qu’à partir de la version 5.6. Avant cela,
+	il faut activer explicitement cette vérification et fournir diverses
+	options. Par ailleurs, les champs "subjectAltName" des certificats ne sont
+	pas supportés dans ce cas de figure (leur support a été ajouté dans
+	<abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> 5.6)&nbsp;:</p>
+
+	<pre><code>// PHP 5.4 or 5.5 only.
+$ssl_opts['verify_peer'] = true;
+$ssl_opts['SNI_enabled'] = true;
+$ssl_opts['CN_match']    = 'smtp.server.tld';
+$ssl_opts['cafile']      = '/etc/ssl/certs/ca-certificates.crt';// Debian-like
+$ssl_opts['ciphers']     = 'ALL!EXPORT!EXPORT40!EXPORT56!aNULL!LOW!RC4';
+$nl_config['mailer']['ssl'] = $ssl_opts;
+</code></pre>
+	</div></div>
+      <div id="cron" class="block">
+<h2>Envoi des newsletters avec cron</h2><div class="content">
+	
+
+	<p>Le script donne la possibilité de réaliser vos envois de newsletters avec cron.<br />
+	C’est très simple, il suffit d’appeler l’adresse suivante&nbsp;:
+	<kbd>http://www.yourdomaine.com/rep/options/cron.php?mode=send&amp;liste=<code class="constant">[ID]</code></kbd><br />
+	Vous devez là aussi remplacer <code class="constant">[ID]</code> par l’identifiant
+	de la liste concernée.</p>
+
+	<p>Pour faciliter les traitements automatisés, le script cron.php accepte
+	aussi le paramètre output=json dans l’URL, lui indiquant de retourner une
+	réponse dans ce format. Exemple de réponse&nbsp;:</p>
+
+	<pre><code>{
+	error: false,
+	message: "La newsletter a été envoyé à X abonnés..."
+}</code></pre>
+
+	<div class="note">
+	<p><strong>Note&nbsp;:</strong></p>
+	<ul>
+		<li>Vous pouvez très bien changer le nom du fichier cron.php (conseillé)</li>
+		<li>C’est à vous de régler cron pour qu’il réalise l’appel au script (si cron n’est pas disponible
+		   sur votre serveur, vous pouvez utiliser par exemple les services
+		   de <a href="http://www.webcron.org/" hreflang="fr" title="Webcron&nbsp;: Service de tâches automatisées">webcron.org</a></li>
+	</ul>
+	</div>
+
+	<p>À partir de Wanewsletter 2.3, un module utilisable en ligne de comande
+	est disponible dans le répertoire <samp>contrib/</samp>. Vous devez donner
+	les droits d’exécution sur le fichier <samp>contrib/wanewsletter</samp>
+	(ou passer par l’exécutable <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> dans votre ligne de commande).</p>
+
+	<p>Voici la commande pour lancer un envoi pour une liste donnée&nbsp;:</p>
+
+	<pre><samp>$ /path/to/contrib/wanewsletter --process-send=1</samp></pre>
+
+	<p>Avec <code>1</code> l’identifiant de la liste concernée dans cet exemple.</p>
+
+	<p>Par défaut, le script enverra tous les emails en faisant une pause de 10 secondes
+	tous les 30 emails pour éviter d’engorger le serveur de mail. Ces deux valeurs (10 et 30)
+	sont modifiables en ligne de commande avec respectivement les paramètres <kbd>--delay</kbd>
+	et <kbd>--packet</kbd>.</p>
+
+	<p>Si vous ne souhaitez pas envoyer tous les emails, vous pouvez utiliser
+	le paramètre <kbd>--limit</kbd> pour indiquer le nombre d’emails maximum
+	à envoyer.</p>
+	</div></div>
+      <div id="custom_tags" class="block">
+<h2>Utilisation de tags personnalisés</h2><div class="content">
+	
+
+	<p>Pour utiliser les tags personnalisés (à l’instar de <code>{LINKS}</code>
+	ou <code>{NAME}</code>), copiez le fichier tags.sample.inc.php dans le
+	répertoire <samp>data/</samp> et renommez-le tags.inc.php.
+	Ensuite, éditez-le. Vous devriez trouver ceci au début du fichier&nbsp;:</p>
+
+	<pre><code><span class="hl-comment">//$other_tags[$t]['column_name'] = '';
+//$other_tags[$t]['field_name']  = '';
+//$other_tags[$t]['tag_name']    = '';
+//$t++;
+</span></code></pre>
+
+	<p>Wanewsletter ne gère pas automatiquement les tags personnalisés.
+	C’est à dire que c’est à vous de rajouter le champ voulu dans la table
+	<samp>prefixe_abonnes</samp>, puis de spécifier le tag dans
+	<samp>data/tags.inc.php</samp> pour que le script effectue le remplacement
+	du tag par sa valeur lors de l’envoi.</p>
+
+	<p>Exemple&nbsp;:<br />
+	Vous souhaitez pouvoir mettre un tag <code>{ADDRESS}</code> dans vos
+	newsletters, lequel sera remplacé par l’adresse de l’abonné. Après avoir
+	ajouté un champs nommé par exemple abo_address dans la table
+	<samp>prefixe_abonnes</samp>, vous placerez les données du tag dans
+	<samp>data/tags.inc.php</samp> (en ayant décommenté les lignes que j’ai
+	données plus haut), comme ci dessous&nbsp;:</p>
+
+	<pre><code><span class="hl-html"><span class="hl-default">$other_tags</span><span class="hl-keyword">[</span><span class="hl-default">$t</span><span class="hl-keyword">][</span><span class="hl-string">'column_name'</span><span class="hl-keyword">] = </span><span class="hl-string">'abo_address'</span><span class="hl-keyword">;
+</span><span class="hl-default">$other_tags</span><span class="hl-keyword">[</span><span class="hl-default">$t</span><span class="hl-keyword">][</span><span class="hl-string">'field_name'</span><span class="hl-keyword">]  = </span><span class="hl-string">''</span><span class="hl-keyword">;
+</span><span class="hl-default">$other_tags</span><span class="hl-keyword">[</span><span class="hl-default">$t</span><span class="hl-keyword">][</span><span class="hl-string">'tag_name'</span><span class="hl-keyword">]    = </span><span class="hl-string">'ADDRESS'</span><span class="hl-keyword">;
+</span><span class="hl-default">$t</span><span class="hl-keyword">++;</span></span></code></pre>
+
+	<p>Vous souhaitez maintenant ajouter un autre tag&#8201;? Reproduisez simplement la même opération.</p>
+
+	<p>Pour que vos abonnés puissent ajouter ces données dans leur profil, le panneau de gestion
+	de profil doit être activé (voir configuration générale). Vous devez modifier le template
+	editprofile_body.tpl présent dans le répertoire <samp>templates/</samp> du script.<br />
+	Ajoutez les champs text nécessaires en prenant soin de leur donner le nom de la colonne à
+	laquelle ils se rapportent.<br />
+	Exemple en se basant sur les tags des exemples précédents&nbsp;:</p>
+
+	<pre><code>&lt;table class="content"&gt;
+	&lt;tr&gt;
+		&lt;td class="row1"&gt;&lt;label&gt;{L_EMAIL}&amp;#160;:&lt;/label&gt;&lt;/td&gt;
+		&lt;td class="row2"&gt;&lt;span class="texte"&gt;{EMAIL}&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class="row1"&gt;&lt;label for="pseudo"&gt;{L_PSEUDO}&amp;#160;:&lt;/label&gt;&lt;/td&gt;
+		&lt;td class="row2"&gt;&lt;input type="text" id="pseudo" name="pseudo" value="{PSEUDO}" size="30" maxlength="30" class="text" /&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class="row1"&gt;&lt;label for="abo_address"&gt;Votre adresse&amp;#160;:&lt;/label&gt;&lt;/td&gt;
+		&lt;td class="row2"&gt;&lt;textarea id="abo_address" name="abo_address" rows="4" cols="50" class="text"&gt;{ADDRESS}&lt;/textarea&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class="row1"&gt;&lt;label for="abo_birthday"&gt;Anniversaire&amp;#160;:&lt;/label&gt;&lt;/td&gt;
+		&lt;td class="row2"&gt;&lt;input type="text" id="abo_birthday" name="abo_birthday" value="{BIRTHDAY}" size="30" maxlength="30" class="text" /&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class="row1"&gt;&lt;label for="language"&gt;{L_LANG}&amp;#160;:&lt;/label&gt;&lt;/td&gt;
+		&lt;td class="row2"&gt;{LANG_BOX} &lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;!-- BEGIN password --&gt;
+	&lt;tr&gt;
+		&lt;td class="row1"&gt;&lt;label for="current_pass"&gt;{password.L_PASS}&amp;#160;:&lt;/label&gt;&lt;/td&gt;
+		&lt;td class="row2"&gt;&lt;input type="password" id="current_pass" name="current_pass" size="30" maxlength="32" class="text" /&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;!-- END password --&gt;
+	&lt;tr&gt;
+		&lt;td class="row1"&gt;&lt;label for="new_pass"&gt;{L_NEW_PASS}&amp;#160;:&lt;/label&gt;&lt;/td&gt;
+		&lt;td class="row2"&gt;&lt;input type="password" id="new_pass" name="new_pass" size="30" maxlength="30" class="text" /&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class="row1"&gt;&lt;label for="confirm_pass"&gt;{L_CONFIRM_PASS}&amp;#160;:&lt;/label&gt;&lt;/td&gt;
+		&lt;td class="row2"&gt;&lt;input type="password" id="confirm_pass" name="confirm_pass" size="30" maxlength="30" class="text" /&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+	<p>Il vous est possible d’ajouter des champs au formulaire d’inscription pour réceptionner des données
+	et remplir vos champs personnalisés. Il suffit que ces champs portent le nom donné dans l‘entrée 'column_name',
+	ou 'field_name' si vous souhaitez utiliser un nom différent de celui de la colonne dans la base de données.</p>
+
+	<p>Le script de traitement de l’inscription sauvegardera automatiquement ces données supplémentaires dans
+	leur champ respectif.</p>
+
+	<div class="note">
+	<p><strong>Note&nbsp;:</strong> Vous ne pouvez pas utiliser les tags personnalisés avec
+	le moteur d’envoi en copie cachée
+	</p>
+	</div>
+	</div></div>
+      <div id="language_form" class="block">
+<h2>Définir une langue selon le formulaire</h2><div class="content">
+	
+
+	<p>Cette fonctionnalité était demandée par plusieurs utilisateurs de Wanewsletter.<br />
+	Pour définir une langue à utiliser avec le formulaire (sous réserve que cette langue soit
+	installée dans Wanewsletter), il vous suffit d’ajouter la ligne suivante dans le code
+	d’inclusion de newsletter.php qui est fourni par le générateur de formulaire&nbsp;:
+	<code>$language = 'fr';</code></p>
+
+	<p>Additionellement, vous pouvez également définir l’adresse <abbr title="Uniform Resource Locator" lang="en">URL</abbr>
+	à utiliser pour forger le lien de confirmation d’inscription ou désinscription.<br />
+	Voici un exemple de code <abbr title="PHP: Hypertext Preprocessor" lang="en">PHP</abbr> intégrant ces deux ajouts.</p>
+
+	<pre><code>&lt;?php
+$language = 'en';
+$formURL  = 'http://mydomain.tld/en/myform';
+
+require 'path/to/newsletter.php';
+?&gt;</code></pre>
+
+	<div class="note">
+	<p><strong>Note&nbsp;:</strong><code>$language</code> et <code>$formURL</code>
+	doivent être ajoutés <strong>avant</strong> l’inclusion du fichier
+	newsletter.php (avant <code>require()</code>).</p>
+	</div>
+	</div></div>
+      <div id="sqlite" class="block">
+<h2>Utiliser Wanewsletter avec SQLite</h2><div class="content">
+	
+
+	<p>À partir de la version 2.3.0, Wanewsletter peut fonctionner avec les bases
+	de données SQLite 3. Vérifiez cependant que votre installation de PHP
+	comporte une des extensions sqlite existantes. Wanewsletter possède des couches
+	d’abstraction pour fonctionner avec les extensions sqlite3 ou pdo + pdo_sqlite.</p>
+
+	<p>Vous devez vous assurer avant de débuter l’installation que le répertoire
+	<samp>data/db/</samp> de Wanewsletter lui est accessible en lecture
+	<strong>ET</strong> en écriture. En effet, c’est dans ce répertoire que
+	sera créé par défaut la base de données sqlite de Wanewsletter. Vous
+	pouvez cependant définir le chemin d’installation de la base de données
+	sqlite lors de l’installation.</p>
+
+	<p>Votre base de données sqlite peut être déplacée sans que cela pose de
+	problème. Il faut simplement qu'elle soit accessible en écriture, de même
+	que le répertoire qui la contient, et que la chaîne DSN dans le fichier
+	de configuration de wanewsletter soit correctement renseignée.</p>
+	</div></div>
+      <div id="contribute" class="block">
+<h2>Comment contribuer au projet Wanewsletter&#8201;?</h2><div class="content">
+	
+
+	<p>Consultez le fichier <a href="readme.fr.html#contrib">readme du script</a>.</p>
+	</div></div>
+      <div id="disable_check_links" class="block">
+<h2>Est-il possible de désactiver la vérification de présence du tag {LINKS}&#8201;?</h2><div class="content">
+	
+
+	<p>Oui, c’est possible. Vous devez pour cela éditer le fichier <samp>admin/envoi.php</samp>
+	et remplacer <code class="constant">false</code> par <code class="constant">true</code>
+	au début du fichier&nbsp;:</p>
+
+	<pre><code>const DISABLE_CHECK_LINKS = false;</code></pre>
+
+	<p>N’oubliez pas que permettre aux abonnés à vos listes de se désinscrire simplement
+	et rapidement si tel est leur souhait est une obligation légale <a href="#note-lcen">(1)</a>.<br />
+	Aussi, et sauf cas particuliers, vous ne devriez pas retirer ces liens des lettres
+	que vous envoyez, et donc changer la valeur de cette constante.</p>
+
+	<p id="note-lcen">(1) Au moins en France, en application de l’article 22 de la
+	<a href="http://www.legifrance.gouv.fr/WAspad/UnTexteDeJorf?numjo=ECOX0200175L" hreflang="fr">
+	loi n°&nbsp;2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique (LCEN)</a>.</p>
+	</div></div>
+      <div id="emails_templates" class="block">
+<h2>Où se trouvent les modèles des emails d’inscription, confirmation et désinscription&#8201;?</h2><div class="content">
+	
+
+	<p>Vous les trouverez dans le répertoire <samp>languages/{code langue}/emails/</samp>.</p>
+	</div></div>
+      <div id="url_templates" class="block">
+<h2>Le chargement de newsletters par URL, c’est quoi&#8201;?</h2><div class="content">
+	
+
+	<p>Cette fonctionnalité a fait l’objet d’une forte demande par les utilisateurs de
+	Wanewsletter et a donc été implémentée dans Wanewsletter 2.3.</p>
+
+	<p>Le chargement de modèles de newsletters par <abbr title="Uniform Resource Locator" lang="en">URL</abbr> est très simple à
+	utiliser. Indiquez simplement l’adresse du modèle au format texte <strong>et/ou</strong>
+	celle du modèle au format <abbr title="HyperText Markup Language" lang="en">HTML</abbr> dans les champs correspondants lorsque
+	vous êtes sur la page de chargement des newsletters (lien <q>charger une newsletter</q>
+	dans la page d’envoi).</p>
+
+	<p>Le script rapatriera alors le contenu de chacune des <abbr title="Uniform Resource Locator" lang="en">URL</abbr>s fournies
+	et effectuera une conversion automatique vers l’UTF-8 si besoin.</p>
+
+	<p>Dans le cas d’un modèle au format <abbr title="HyperText Markup Language" lang="en">HTML</abbr>, Wanewsletter récupèrera le
+	contenu d’un éventuel élément <code>&lt;title/&gt;</code> présent dans l’en-tête
+	de la page et l’utilisera comme sujet du modèle. Une balise <code>&lt;base&gt;</code>
+	sera également ajoutée dans l’en-tête du modèle pour assurer le bon fonctionnement
+	des <abbr title="Uniform Resource Locator" lang="en">URL</abbr>s relatives.</p>
+	</div></div>
+      <div id="no_language" class="block">
+<h2>Wanewsletter n’est pas disponible dans ma langue maternelle, que faire&#8201;?</h2><div class="content">
+	
+
+	<p>Rendez-vous sur la <a href="http://phpcodeur.net/wascripts/wanewsletter/telecharger" hreflang="fr">page de téléchargement</a> de Wanewsletter. Le paquet de langue vous
+	concernant y est peut-être disponible.</p>
+
+	<p>Consultez également le fichier <a href="readme.fr.html#l10n">readme du script</a>.</p>
+	</div></div>
+      <div id="edit_form" class="block">
+<h2>Comment modifier la présentation du formulaire par défaut&#8201;?</h2><div class="content">
+	
+
+	<p>Les modifications doivent être faites dans le fichier <samp>templates/subscribe_body.tpl</samp>.</p>
+	</div></div>
+      <div id="incomplete_links" class="block">
+<h2>Les liens de confirmation dans les emails sont incomplets, pourquoi&#8201;?</h2><div class="content">
+	
+
+	<p>Vous avez dù oublier de configurer correctement votre liste de diffusion.
+	Indiquez une valeur correcte pour l’option "URL absolue de la page où se trouve le formulaire"
+	dans les réglages de votre liste de diffusion.</p>
+	</div></div>
+      <div id="external_data" class="block">
+<h2>Inclure du contenu externe dans la newsletter</h2><div class="content">
+	
+
+	<p>Wanewsletter propose aussi l’utilisation de tags spéciaux dits <q>tags d’inclusion</q>.
+	Le principe est d’indiquer une url ou un chemin de fichier, le contenu du fichier ciblé
+	étant ajouté à la newsletter lorsque celle-ci est mise en attente d’envoi.</p>
+
+	<pre><code>texte quelconque...
+
+&lt;?inclure src="/path/to/file"?&gt;
+
+fin de newsletter...</code></pre>
+
+	<p>Ce mécanisme prend tout son sens par exemple lorsque l’<abbr title="Uniform Resource Locator" lang="en">URL</abbr> indiquée cible
+	un script serveur générant du contenu. Attention dans ce cas à utiliser une <abbr title="Uniform Resource Locator" lang="en">URL</abbr>
+	et non un chemin local, de manière à ce que le script cible soit bien exécuté par le serveur.</p>
+
+	<p>Si vous souhaitez que l’inclusion soit faite dès la sauvegarde suivante, utilisez l’attribut
+	"tds" avec "true" pour valeur&nbsp;:</p>
+
+	<pre><code>texte quelconque...
+
+&lt;?inclure src="/path/to/file" tds="true"?&gt;
+
+fin de newsletter...</code></pre>
+
+	<div class="note">
+	<p><strong>Note&nbsp;:</strong> Pour les anglophiles,
+	<code>&lt;?include src="/path/to/file" now="true"?&gt;</code>
+	est aussi utilisable ;¬)</p>
+	</div>
+	<div class="note">
+	<p><strong>Note&nbsp;:</strong> Ce système n’est pas compatible avec les tags personnalisés
+	décrits plus haut. Ne mettez donc pas de {TAGNAME} dans le chemin de fichier ou l’url.</p>
+	</div>
+	</div></div>
+      <div id="store_more_data" class="block">
+<h2>Stocker des données supplémentaires à l’inscription</h2><div class="content">
+	
+
+	<p>Consultez l’entrée <q><a href="#custom_tags">Utilisation de
+	tags personnalisés</a></q> de la <abbr title="Frequently Asked Questions" lang="en">FAQ</abbr>.</p>
+	</div></div>
+      <div id="custom_css" class="block">
+<h2>Ajouter une feuille de styles CSS personnalisée</h2><div class="content">
+	
+
+	<p>Vous pouvez, si vous le souhaitez, ajouter une feuille de styles
+	<abbr title="Cascading Style Sheets" lang="en">CSS</abbr> personnalisée dans le dossier <samp>templates/</samp>
+	et nommée <samp>wanewsletter.custom.css</samp>. Elle sera prise en compte
+	et appelée dans le bloc <code>&lt;head&gt;</code> du profil_cp.php,
+	ainsi que dans celui de l’administration.</p>
+	</div></div>
+    </div>
+    <hr />
+    <address id="footer">
+Powered by <a href="http://phpcodeur.net/" hreflang="fr" title="Site officiel de Wanewsletter">
+phpCodeur</a> © 2002–2016 | Wanewsletter 3.0.0<br />
+Ce script est distribué librement sous <a href="http://phpcodeur.net/wascripts/GPL" hreflang="fr">licence <abbr title="GNU General Public Licence" lang="en">GPL</abbr></a></address>
+  </body>
+</html>

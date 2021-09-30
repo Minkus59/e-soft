@@ -1,0 +1,1643 @@
+﻿
+		Changelog – Wanewsletter
+
+
+Version 3.0.0 (publiée le 28 mai 2016)
+----------------------------------------
+
+– Paramétrage possible du délai entre deux flôts d’envoi
+– Lien vers la documentation dans l’interface d’administration
+– Ajustement sur l’affichage de la notification de fin d’envoi
+– Bug fix : Plusieurs erreurs lors d’un envoi à une liste sans inscrits
+– Lien de désinscription facultatif pour les listes non publiques
+– Bug fix : Certains noms de fichiers valides étaient refusés
+– Bug fix : Nom de fichier parfois mal transmis via les en-têtes HTTP
+– Bug fix : BOM UTF-8 non ajouté à l’archive texte dans certains cas
+– Bug fix : PHP Notice: Undefined offset: 0 sur les commandes INSERT (SQLite)
+– Mise à jour des librairies tierces
+
+
+Version 3.0-beta4 (publiée le 21 avril 2016)
+----------------------------------------
+
+– Bug fix : Mauvais argument transmis à $update_abo_list()
+– Bug fix : Subscription::setFormat() ne vérifie pas si l’adresse
+  email est valide
+– Bug fix : Réaffichage incorrect des informations si l’hôte est une
+  IPv6 + numéro de port (installation)
+– Support des signatures DKIM (voir FAQ)
+– Bug fix : Les clients SMTP et POP n’utilisaient que tls 1.0 par
+  défaut avec PHP ≥ 5.6.7
+– Bug fix : Possible erreur SQL de duplication d’entrée (édition
+  d’un profil abonné)
+– Ajout des en-têtes 'List-Unsubscribe' et 'List-ID' aux emails envoyés
+– Bug fix : Clé de localisation 'Xml_ext_needed' manquante
+– Remise en place du cookie mémorisant la dernière liste sélectionnée
+– Intégration de scan_dirs.php dans le script de mise à jour
+– Bug fix : Impossible d'éditer un document HTML complet dans TinyMCE
+– Bug fix : Certaines URL étaient converties en URL relatives par TinyMCE
+– Le sujet est inséré dans la lettre HTML si elle contient un <title> vide
+– La boîte de sélection du format est toujours disponible dans les archives
+– Bug fix : Barre de progression faussée si la valeur contient une virgule
+– Gestion dynamique des boucles d’envoi d’emails
+– Notification dynamique de fin d’envoi (dépend du support par le navigateur)
+– Tableau $nl_config['mailer'] dans le fichier de configuration pour la
+  transmission des options à Wamailer
+– Support (très) basique du mode JSON avec newsletter.php
+– Mise à jour de TinyMCE à la version 4.3.10
+
+
+Version 3.0-beta3 (publiée le 11 mars 2016)
+----------------------------------------
+
+– Bug fix : Table wa_config vidée lors de la mise à jour
+
+
+Version 3.0-beta2 (publiée le 6 mars 2016)
+----------------------------------------
+
+– Compatibilité vérifiée avec PHP 7
+– Support des connexions SSL/TLS au serveur de base de données
+– Ajout d’un timeout de connexion pour MySQL et PostgreSQL
+– Suppression du support d’Internet Explorer 8 (interface d’administration)
+– Support HTTPS du chargement d'URLs distantes (la vérification des
+  certificats nécessite curl et/ou PHP 5.6+)
+– Mise à jour des librairies tierces
+– Bug fix : Problème d’initialisation de session sur PHP 7
+– Bug fix : Support des erreurs PHP 7 basées sur la classe \Error
+– Bug fix : Session::write() retournait false dans certains cas incorrects
+– Améliorations sur l’intégration de TinyMCE
+– Bug fix : Fichier lock non déverrouillé dans certains cas
+– Bug fix : Lors d’un test d’envoi, les erreurs n’étaient pas rapportées
+– Bug fix : Les admins recevaient une copie pour n’importe quelle liste
+  (si cette option était activée pour une quelconque liste)
+– Les mots de passe utilisateur peuvent maintenant contenir n’importe
+  quel caractère imprimable
+– Bug fix : Option starttls non prise en compte dans certains cas
+– Bug fix : Barres de progression des envois parfois incorrectes
+– Sortie JSON pour les messages/erreurs avec le paramètre output (ex:
+  cron.php)
+– Bug fix : le script faisait une pause à la fin de l’envoi dans
+  certains cas (interface CLI)
+– Bug fix : Script contrib/convertdb.php cassé
+– Bug fix : preg_match(): compilation failed avec le fichier log activé
+  (Windows)
+– Bug fix : Ajout de plusieurs chaînes de localisation manquantes
+– Suppression de la fonctionnalité d’envoi de copie aux administrateurs
+– Bug fix : Les liens de désinscription n’étaient plus ajoutés aux
+  lettres envoyées
+– Bug fix : double trait sous les acronymes sur Firefox
+– Bug fix : Erreur lors des redirections HTTP lorsque le port est
+  présent ds l’url
+– Bug fix : Connexion impossible dans certains cas spécifiques
+– Bug fix : Slashe manquant sur les urls ciblant un dossier (http_build_url())
+– Ajout nombre de destinataires dans la page view/logs
+– Bug fix : Mise à jour incomplète à partir de la version 2.2.13
+– L’installeur peut utiliser un fichier de config pré-existant
+
+
+Version 3.0-beta1 (publiée le 4 octobre 2015)
+----------------------------------------
+
+– Wanewsletter requiert désormais PHP 5.4.4 ou plus
+– Modifications diverses sur la sortie de débogage
+– Bug fix : parse_str() est affecté par la configuration des magic quotes
+– Bug fix : Espace restant incorrectement rapporté lors des ajouts de
+  fichiers joints
+– Bug fix : Caractères html spéciaux non encodés dans certaines URLs
+– Ajout information sur la consommation mémoire du script (avec DEV_INFOS
+  à true)
+– Unicité des messages d’erreurs stockés dans le journal
+– Bug fix : Module de statistiques bogué avec les nouvelles listes
+– Bug fix : Prise en charge des fichiers xml compressés par le module
+  d’importation
+– Le module d’importation traite désormais par défaut jusqu’à 10000
+  emails en une opération
+– Bug fix : Affichage corrompu des archives HTML sur PHP 5.6+
+– Bug fix : Fichiers temporaires parfois non supprimés
+– Débogage configurable dans le panneau de configuration
+– Suppression du support de SQLite 2
+– Bug fix : Réinstallation non fonctionnelle
+– Bug fix : Mauvais formatage des sauvegardes avec PostgreSQL
+– Bug fix : Convertisseur de base de données cassé avec PostgreSQL
+– Wanewsletter requiert désormais PostgreSQL 8.3 ou plus dans le cas
+  d’une installation sur ce type de base de données
+– Bug fix : tags <b> non supprimés sur les terminaux sans support des
+  séquences ANSI
+– Bug fix : Codes d’erreur SQL mal renvoyés dans le cas de PostgreSQL
+– Bug fix : Erreur "database is locked" parfois avec le driver sqlite3
+– Bug fix : Lien incorrect dans l’email de bienvenue des nouveaux
+  administrateurs
+– Support complet de l’UTF-8
+– Bug fix : Mauvais traitement des commentaires dans le parseur SQL
+– Bug fix : Incohérences dans l’affichage de certaines erreurs à
+  l’installation
+– Bug fix : install.php - Le nom de la base sqlite était réaffiché
+  dans le champ texte pour le nom de base de données
+– Bug fix : le script `contrib/wanewsletter` ne détectait pas les
+  formats d'arguments contenant un espace (--key value, ou -k v)
+– Support des adresses IPv6
+– Bug fix : Sqlite3Result::column() bogué avec les index numériques
+– Bug fix : Lien de désinscription incorrect dans les archives envoyées
+  par profil_cp.php dans certains cas
+– Réécriture du système de sessions et utilisation de ce dernier dans
+  profil_cp.php
+– Nouveau système de création/réinitialisation de mot de passe plus sécurisé
+– Utilisation de l’API password de PHP 5.5 + paquet
+  ircmaxell/password-compat pour la compatibilité avec les versions
+  précédentes (remplace la librairie phpass introduite dans la 2.4-beta2)
+– Modification possible du statut d’un compte abonné via l’interface
+  d’administration
+– tools.php ne demande plus par défaut de choisir une liste
+– Intégration de elkuku/console-progressbar en lieu et place de PEAR
+  Console_ProgressBar
+– Bug fix : wanlog() ne fonctionnait pas comme prévu avec les entrées
+  ayant la valeur NULL
+– Ajout de la date dans le nom de fichier des archives Zip des newsletters
+– Intégration de Wamailer 4
+– Support SSL/TLS pour les connexions SMTP et POP
+– Support d’une feuille CSS personnalisée (`wanewsletter.custom.css`,
+  à mettre dans `templates/`)
+– Suppression de la fonctionnalité de vérification approfondie des emails
+– tags.inc.php est désormais localisé dans `data/`
+– Ajout du script `contrib/scan_dirs.php`
+– Suppression de l’option de stockage des fichiers joints sur un FTP
+– Suppression de `contrib/bounces.php` (absolument pas fonctionnel)
+– Espace de noms PHP "Wanewsletter", facilitant l’intégration dans
+  d’autres projets PHP (notamment pour newsletter.php)
+– Ajout stockage possible du journal d’erreurs dans un fichier
+– Bug fix : Prise en compte de l’option PHP 'filter.default' lorsque
+  positionnée sur 'magic_quotes'
+– Bug fix : Redirection HTTP incorrecte dans envoi.php
+– Bug fix : Output::redirect() n’échappe pas les caractères HTML spéciaux
+– Liste en destinataire principal pour les envois en copie cachée
+– Bug fix : Numéro de port non réaffiché dans le formulaire s’il est fourni
+– Ajout en-tête HTTP x-frame-options contre le "clickjacking"
+– Valeur par défaut pour `--packet` dans `contrib/wanewsletter` réduite
+  de 400 à 30
+– Bug fix : upgrade.php demandait toujours une authentification
+– Le fichier de configuration est désormais localisé dans `data/`
+  (l’ancien emplacement dans `includes/` fonctionne toujours)
+– Connexion persistante pour les envois avec un serveur SMTP
+– Security fix : Faille dans install.php lorsque laissé sur le serveur
+  et permettant de récupérer le fichier de configuration
+– Intégration de base de TinyMCE
+– Bug fix : Format de date de l’utilisateur affiché dans la page config
+– Bug fix : Upgrade incorrect à partir d’une version 2.2.*
+– Bug fix : glitch graphique sur la page de chargement des brouillons
+– Paramètre 'sending_limit' à 100 par défaut
+– Bug fix : gestion incorrect de l’en-tête Date des emails (système
+  des inscriptions sur boîte mail)
+– Bug fix : pseudo non enregistré (système des inscriptions sur boîte mail)
+
+
+Version 2.4-beta2 (publiée le 15 octobre 2014)
+----------------------------------------
+
+– Wanewsletter requiert désormais PHP 5.2.4 ou plus
+– Wanewsletter requiert désormais MySQL 5, PostgreSQL 8 ou SQLite 2/3
+– Les abonnés peuvent changer leur adresse email via le panneau de profil
+  abonné
+– Bug fix : Lors d’un envoi via un serveur SMTP, le port précisé dans
+  la configuration était ignoré (utilisation du port 25 par défaut)
+– Remplacement de unhtmlspecialchars() par la fonction
+  htmlspecialchars_decode() native
+– Bug fix : les entités html dans le nom des listes étaient affichées
+  telles quelles dans le second graphique de la page des statistiques
+– Bug fix : Le pseudo de l’abonné (si renseigné) n’était pas
+  récupéré correctement lors de la confirmation
+  d’inscription/désinscription
+– Bug fix : Incompatibilité avec MySQL 5.5 et le mot-clé TYPE dans le
+  fichier de définition des tables
+– Bug fix : Incompatibilité avec PHP 5.4 et plus où htmlspecialchars()
+  et html_entity_decode() attendent des chaînes codées en UTF-8
+– Suppression du support expérimental de Firebird
+– Suppression de la librairie DOM-Compat
+– Multiples améliorations sur le design de l’interface
+– Multiples améliorations sur l’affichage dynamique des statistiques
+– Interface HTML5 Compliant
+– Bug fix : Ajout d'un canal alpha sur l’image de loupe
+– Corrections diverses dans les fichiers de langue
+– Bug fix : Importation d'emails sans restriction sur l'extension de fichier
+– Bug fix : Filtrage de toutes les adresses IP de la boucle locale
+– Ajout de la date dans la liste de sélection des brouillons
+– Ajout d’une entrée dans la boîte de sélection de la page outils
+  pour la sortie de débogage
+– Ajout vérification de disponibilité de mise à jour
+– Ajout sortie JSON + définition du nom de variable via use-variable dans
+  extra.php
+– Barre de progression dans la page des envois en cours
+– Suppression des ID de session dans l'URL. Cookies obligatoires
+– Paramètre `httpOnly` pour les cookies envoyés par le script
+– Suppression de la classe zipfile et utilisation de la classe ZipArchive
+  native
+– Script de mise à jour désormais intégré dans l’administration
+– Les mots de passe doivent désormais avoir une longueur d’au moins 6
+  caractères
+– Utilisation de la librairie phpass pour le hashage des mots de passe
+– Bug fix : Erreur "Call to undefined method mysqli::get_charset()" avec
+  la driver mysqli.php dans certains cas non élucidés
+– Bug fix : Colonnes log_body_text et log_body_html passées en
+  MEDIUMTEXT sur MySQL pour pouvoir stocker plus de 64 kilo-octets
+– Le script d’installation se trouve désormais à la racine
+– Les répertoires `stats/`, `tmp/` et `upload/` se trouvent désormais
+  dans le nouveau répertoire `data/`
+– Bug fix : Suppression de liste non fonctionnelle
+– Bug fix : Filtrages sur le nom et le chemin de validité du cookie
+  entrés dans la page de configuration pour éviter que l’accès à
+  l’administration soit bloqué en cas de mauvais réglages
+– Si le nom des cookies est changé, le script actualise automatiquement
+  les cookies présents dans le navigateur
+– Bug fix : Ajout d’un délai d’expiration sur les appels HTTP
+  réalisés par le script pour éviter des blocages prolongés
+– Améliorations sur la gestion des erreurs avec PostgreSQL
+– Bug fix : Accès impossible à l’administration en cas
+  d’installation à la racine du site
+– Meilleur support des accès à l’administration sécurisés par SSL/TLS
+– Bug fix : Le signe arobase de l’adresse email était transformé en
+  %40 lors des insertions avec le tag {WA_EMAIL}
+– Possibilité de spécifier le chemin d'installation de la base de
+  données sqlite lors de l’installation
+– Bug fix : Les tables d’information PostgreSQL (sql_*) étaient
+  affichées dans la liste des tables dans le module de sauvegarde
+– Le script ne créé plus de liste par défaut à l’installation
+– Le script utilise désormais uniquement le format d’archives Zip pour
+  les exports d’archives de newsletters
+– Bug fix : Le script ne vérifie plus la présence d'un envoi en cours
+  lorsqu’on fait un test d’envoi
+
+
+Version 2.4-beta1 (publiée le 4 décembre 2010)
+----------------------------------------
+
+– Intègre tous les correctifs apportés dans la version 2.3.3
+– Versions de PHP désormais requises par Wanewsletter : PHP 4.3.0 ou PHP
+  5.1.0 minimum
+– Suppression du support des mises à jour à partir de versions
+  2.0.x/2.1.x de Wanewsletter
+– Suppression du support de MySQL 3.x/4.0
+– Retouches diverses sur le design de l’interface
+– Simulation d’un envoi – On peut spécifier une ou plusieurs adresses
+  mails où envoyer une copie de la lettre en cours de rédaction. Pratique
+  pour tester l’affichage texte ou html dans différents clients mails ou
+  webmail.
+– Le système de chargement de modèle par URL accepte maintenant aussi
+  des chemins locaux
+– Édition possible des valeurs des tags personnalisés via l’administration
+– Remplacement des tags personnalisés également dans les emails
+  préformatés du script (emails d’inscription, confirmation, ...)
+– Convertisseur de base de données générique `contrib/convertdb.php`
+  (et donc suppression de `contrib/mysql2sqlite*`)
+– Nouveau système d’affichage des images jointes
+– Affichage de la date de dernière modification de la lettre en cours de
+  rédaction dans la page envoi
+– Navigation dynamique dans les statistiques mensuelles
+– Le script s’identifie désormais en tant que "Wanewsletter/x.y" dans
+  l’entête X-Mailer des emails envoyés. Cette valeur peut être customisée
+  en modifiant la constante WA_X_MAILER dans le fichier
+  `includes/constantes.php`
+– Affichage de la taille des tables de données avec PostgreSQL
+– Ajout d’un squelette de fichier de configuration en cas de besoin
+  (fichier de configuration perdu, effacé par accident, etc)
+– Le script modifie le charset de connexion à la base de données en
+  « latin1 » si le charset par défaut est multi-octet (par exemple
+  l’utf-8) et affiche un message d’alerte
+– Ajout de commutateurs pour basculer en un click toutes les autorisations
+  d’un utilisateur pour une liste donnée
+– Support de la nouvelle classe SQLite3 introduite avec PHP 5.3
+– Le port d’accès à la base de données peut désormais être
+  précisé lors de l’installation si nécessaire
+
+
+Version 2.3.4 (publiée le 20 avril 2015)
+----------------------------------------
+
+– Bug fix : Lors d’un envoi via un serveur SMTP, le port précisé dans
+  la configuration était ignoré (utilisation du port 25 par défaut)
+– Bug fix : Bug avec PHP ≥ 5.4 et htmlspecialchars() (pertes de
+  données à l’affichage)
+– Bug fix : Les entités html dans le nom des listes étaient affichées
+  telles quelles dans le second graphique
+– Bug fix : Le mot-clé TYPE n'est plus valide à partir de mysql 5.5
+– prise en compte de l'option filter.default réglée sur 'magic_quotes'
+– Security fix : Faille de sécurité dans setup.inc.php permettant de
+  récupérer le contenu du fichier de configuration
+– Bug fix : Interface inaccessible en IPv6
+– Bug fix : Erreurs E_STRICT bloquantes dans l’installeur
+– Bug fix : Suppression de liste non fonctionnelle
+– Bug fix : Espace restant incorrectement rapporté lors des ajouts de fichiers
+– Bug fix : Affichage corrompu des archives HTML sur PHP 5.6+
+– Désactivation du module de sauvegarde pour PostgreSQL (plusieurs bugs
+  présents)
+
+
+Version 2.3.3 (publiée le 2 décembre 2010)
+----------------------------------------
+
+– Corrections orthographiques dans les fichiers de langue
+– Corrections diverses pour la compatibilité avec PHP 5.3
+– Bug fix : Incohérences dans les valeurs de maxlength de certains champs
+– Bug fix : Paramètres de formatage manquants ou incorrectes dans la
+  traduction anglaise
+– Bug fix : Message d’erreur affiché par le script d’installation et
+  qui empêchait le téléchargement du fichier de configuration généré
+– Bug fix : Problèmes mineurs sur les fonctions de traitement des erreurs PHP
+– Bug fix : Puces du menu non affichées sur IE ≥ 7
+– Bug fix : Boutons de prévisualisation et ajout de lien non affichés
+  sur IE8 (peut-être aussi IE7)
+– Bug fix : Le libellé "Se désinscrire" n’était pas correctement
+  codé dans les lettres envoyées en UTF-8 à partir du panneau de profil
+– Bug fix : Les liens de désinscription dans les lettres envoyées à
+  partir du panneau de profil n’étaient pas valides
+– Bug fix : Léger bug d’affichage sans conséquence dans Opera
+– Améliorations sur la classe de connexion expérimentale pour Firebird
+  (requiert PHP 5.1.0)
+– Bug fix : Erreur de segmentation avec la fonction is_utf8() et de
+  longues chaînes (≥ 10000 caractères) (voir le bug php
+  http://bugs.php.net/bug.php?id=37793)
+– Suppression de la référence à phpcodeur.net dans l’entête X-Mailer
+– Workaround pour le cas où le charset de connexion par défaut à la
+  base de données est multi-octets
+– Ajout d’un squelette de fichier de configuration (cas de fichier de
+  config égaré/supprimé par erreur)
+– Bug fix : La vérification javascript de l’adresse email rejetait les
+  adresses locales (ex: bobe@localhost) (subscribe.php)
+– Bug fix : (postgresql) Erreur de syntaxe au niveau des colonnes sans
+  valeur par défaut dans les sauvegardes SQL générées
+– Bug fix : (postgresql) Échappement des retours chariot et sauts de
+  ligne pour éviter des problèmes de doublage de sauts de ligne à
+  l’importation dans phppgadmin
+– Ajout d’une requête préliminaire SET NAMES <codage de caractère>
+  dans les sauvegardes SQL générées par l’outil de sauvegarde
+– Bug fix : Erreur SQL avec PostgreSQL en tentant de supprimer un fichier
+  joint
+– Bug fix : Authentification impossible au panneau de gestion de compte
+  abonné dans certaines circonstances
+– Bug fix : Évènement 'change' sur les boutons radio/checkbox est
+  bogué sur IE ≤ 8 + ajustements pour IE9
+– Bug fix : Incohérence dans la gestion d’argument de la fonction
+  check_auth() qui pouvait amener à avoir un $listdata vide
+– Bug fix : "Tags" non enregistrés si l’entrée field_name est vide
+  (alors même que column_name est bien renseigné)
+– Bug fix : Le test du nom de jeu de caractères spécifié dans les
+  modèles chargés par URL était sensible à la casse
+– Bug fix : Le masque de capture de l’attribut encoding des prologues
+  XML dans http_get_contents() était incorrect
+– Masques regexp de capture d’attributs HTML/XML plus conformes aux
+  définitions données dans les spécifications HTML/XML
+– Bug fix : Le générateur de formulaire continuait de mentionner une
+  variable $waroot (alors qu’elle n’existe plus depuis la branche 2.2)
+– Bug fix : Le test de la variable système LANG était sensible à la
+  casse dans wan_cli_handler()
+– Bug fix : Les entités HTML du titre des modèles chargés à partir
+  d’une URL n’étaient pas décodés
+
+
+Version 2.3.2 (publiée le 14 novembre 2006)
+----------------------------------------
+
+– Corrections mineures sur les fichiers de langue
+– Modification de la fonction de vérification syntaxique des mots de
+  passe pour accepter des mots de passe plus complexes
+– Bug fix : Erreur SQL à la création d’une liste si aucune liste
+  n’était précédemment sélectionnée
+– Récupération du pseudo à l’inscription (si un champ texte 'pseudo' existe)
+– Bug fix : Titre du formulaire par défaut non localisé
+– Bug fix : Index « Unsubscribe » doublé dans les fichiers de localisation
+– Bug fix : Erreur fatale à l’envoi en utilisant `options/cron.php` et
+  les envois par flot
+– Bug fix : Erreur de formatage dans les prévisualisations des lettres
+– Bug fix : Problème de compatibilité avec les serveurs utilisant MySQL
+  4.0 et l’extension mysqli de PHP
+– Bug fix : Erreur « 504 5.5.2 : Helo command rejected: need
+  fully-qualified hostname » avec certains serveurs SMTP dans certains cas
+– Security fix : Faille potentielle avec $GLOBALS et register_globals à
+  on (http://bugs.php.net/bug.php?id=31440)
+– Ajout d’un message informatif au lancement d’un envoi ou flot
+  d’envoi si l’adresse du formulaire de la liste n’est pas défini
+– Bug fix : Barre d’ascenseur des textarea réinitialisée lorsqu’on
+  ajoute le lien de désinscription (navigateurs Gecko-like)
+– Bug fix : Les champs TEXT SQL ne doivent pas avoir de valeur par défaut
+– Security fix : Rejet des noms de fichier uploadé comportant des
+  caractères de contrôle, en particulier l’octet NULL
+– Security fix : Vulnérabilités XSS diverses
+– Bug fix : Diverses corrections mineures sur la classe Mailer
+– Ajout possibilité de spécifier l’adresse du formulaire via le code
+  PHP du formulaire (voir la FAQ) (sur une suggestion de Nadar)
+– Ajout possibilité de spécifier un codage de caractères pour le
+  message de réponse retourné par newsletter.php (iconv est nécessaire)
+– Bug fix : Script d’installation avec SQLite non fonctionnel
+– Ajout affichage des valeurs des tags dans la page de profil abonné de
+  l’administration
+– Bug fix : Les confirmations d’inscription n’affectent désormais
+  que l’inscription concernée et non toutes les inscriptions en attente de
+  confirmation de l’abonné
+– Bug fix : Correction bug javascript rendant inutilisable l’interface
+  d’envoi sur Safari 1.3.2 (non confirmé)
+
+
+Version 2.3.1 (publiée le 15 juillet 2006)
+----------------------------------------
+
+– Bug fix : Problèmes avec variable serveur SCRIPT_NAME et PHP installé en CGI
+– Bug fix : Erreur de syntaxe potentielle dans `includes/tags.inc.php`
+– Bug fix : Conflit potentiel entre le système de "tags" et la
+  définition du pseudo à l’inscription
+– Corrections dans les fichiers de langue française et anglaise (merci à
+  Nadar)
+– Bug fix : Interface d’installation/mise à jour inutilisable dans
+  certains cas (dépendant de la configuration du navigateur utilisé)
+– Ajout des paramètres de ligne de commande '--packet' et '--delay'
+– Bug fix : Impossible de charger une lettre par URL si aucun brouillon
+  n’a été sauvegardé
+– Bug fix : Erreur sans conséquence en phase d’extinction du script
+  avec certaines classes de connexion
+– Bug fix : Après une confirmation d’inscription, le code donné dans
+  l’email d’inscription n’était plus valide
+– Bug fix : Erreur SQL lors de la suppression d’une liste quand on
+  choisit l’option de déplacer les abonnés et archives à une autre liste
+– Bug fix : Opération de suppression d’une liste et de ses abonnés et
+  archives excessivement lente (plusieurs dizaines de secondes)
+
+
+Version 2.3.0 (publiée le 20 mai 2006)
+----------------------------------------
+
+– Vérification de l’accès en écriture au répertoire `tmp/` du script
+– Bug fix : Problème de compatibilité avec strtotime() entre PHP 5.1 et
+  versions antérieures
+– Bug fix : Problème de compatibilité avec MySQL 5.x et PostgreSQL dans
+  la section « archives »
+– Bug fix : Erreur SQL `Column 'format' cannot be null` à
+  l’importation d’emails avec le script `contrib/wanewsletter`
+– Ajout constante de réglage ANSI_TERMINAL dans `contrib/wanewsletter`
+– Bug fix : Variable $php_errormsg indéfinie
+– Bug fix : Interface d’administration inutilisable sur Safari
+– Bug fix : Barre de progression faussée dans certains cas
+– Bug fix : Envois en mode "un email par abonné" bloqués si un des
+  envois échoue
+– Bug fix : Connexion impossible à l’administration si le mot de passe
+  fait plus de 20 caractères
+
+
+Version 2.3-rc2 (publiée le 12 avril 2006)
+----------------------------------------
+
+– Bug fix : Erreur fatale d’inclusion en activant les validations
+  d’inscriptions par email
+– Bug fix : Paramètres de connexion au compte POP manquants dans
+  `options/cron.php`
+– Ajout d’une barre de progression pour les envois d’email avec le
+  script `contrib/wanewsletter`
+– Bug fix : Option de réception de copie de newsletter non fonctionnelle
+  dans certains cas
+– Bug fix : Erreur fatale dans certains cas où engine_send.php doit
+  renvoyer un message d’information
+– Suppression de la fonction is_disabled_func()
+– Suppression API HTTP `includes/http/` trop peu utile
+– Ajout validation des inscriptions par email avec l’option
+  --process-subscribe de `contrib/wanewsletter`
+
+
+Version 2.3-rc1 (publiée le 27 mars 2006)
+----------------------------------------
+
+– Bug fix : srand() non appellée avant l’utilisation de rand() dans la
+  fonction generate_key() (PHP < 4.2.0)
+– Bug fix : Les mots contenant des caractères non-ascii ne sont pas pris
+  en compte dans le formatage des archives de newsletters texte
+– Bug fix : URLs faussées dans les archives de newsletters texte
+– Upgrade de Wamailer en version 2.4 (voir `/includes/wamailer/ChangeLog`
+  pour les bugs ainsi corrigés)
+– Bug fix : password non hashé si php installé comme CGI ou sur serveur
+  IIS dans Session::check()
+– Bug fix : Script `contrib/cleaner.php` cassé
+– Ajout option de synchronisation entre le répertoire des fichiers joints
+  et les tables du script dans `contrib/cleaner.php`
+– Bug fix : La fonction http_get_contents() ne vérifie pas la présence
+  de l’extension zlib pour ajouter l’en-tête `Accept-Encoding: gzip`
+– Bug fix : Problème de casse de caractère sur certaines parties du
+  module d’importation
+– Bug fix : Plusieurs newsletters peuvent se trouver en même temps en
+  attente d’envoi pour une même liste
+– Suppression du paramètre --all et ajout du paramètre --limit dans
+  `contrib/wanewsletter`
+– Bug fix : Regexp trop stricte sur le prologue XML dans http_get_contents()
+– Ajout du système de tag d’inclusion (voir la FAQ)
+– Suppression de `contrib/empty_list.php`
+– Corrections diverses pour la compatibilité des scripts JavaScript avec
+  Konqueror et Safari
+– Bug fix : Erreur `Duplicate entry 'xxxxxxxx' for key 2` à la
+  désinscription si l’email spécifié est inscrit à plusieurs listes
+– Bug fix : Mauvais modèle d’email utilisé pour le rappel de
+  confirmation d’inscription
+– Bug fix : Bug d’affichage de l’icône de téléchargement
+  d’archive sur Konqueror
+– Bug fix : Notification d’inscription/désinscription non envoyée
+  dans certains cas
+
+
+Version 2.3-beta3 (publiée le 27 février 2006)
+----------------------------------------
+
+– Bug fix : Annulation d’envoi non fonctionnelle
+– Bug fix : Corrections sur le nouveau système de verrouillage lors des envois
+– Support de l’authentification HTTP (voir la FAQ)
+– Support du paquet « Archive_Zip » de PEAR par le module d’export
+  des newsletters archivées
+– Bug fix : Corrections multiples sur le support de Firebird
+– Bug fix : Option de réinstallation du script d’installation non
+  fonctionnelle pour SQLite
+– Bug fix : Parsing potentiellement incorrect des fichiers SQL contenant
+  des requètes étalées sur plusieurs lignes
+– Bug fix : URL de retour erronée après sauvegarde d’une nouvelle newsletter
+– Bug fix : Erreur `Invalid argument supplied for foreach() in
+  engine_send.php…` sur le deuxième flôt d’envoi
+– Bug fix : Erreur `Division by zero in envoi.php on line 325` pour les
+  listes n’ayant aucun abonné
+– Ajustements mineurs sur la feuille de styles `templates/wanewsletter.css`
+– Réactivation de la vérification approfondie des emails (à activer
+  soi-même via le panneau de configuration)
+– Meilleure vérification syntaxique des adresses email
+– Security fix : Vulnérabilité de la librairie d’envoi d’emails aux
+  injections d’en-têtes (Upgrade de Wamailer en version 2.3)
+– Retrait du fichier COPYING.fr du paquet et ajout d'une mention
+  concernant la licence et la traduction disponible sur phpcodeur.net sur la
+  page d’installation
+– Retrait du changelog en version html du paquet (le changelog est
+  toujours disponible en version texte à `docs/ChangeLog`)
+– Bug fix : Décodage incorrect des séquences hexadécimales telles que
+  `%C2` dans les mots clés de recherche dans la section « inscrits »
+– Bug fix : Caractères spéciaux % et _ non échappés dans la requète
+  SQL de recherche dans la section « inscrits »
+– Bug fix : Impossible d’ajouter des fichiers joints à une newsletter
+– Ajout fonction wanlog() pour le déboguage
+– Bug fix : Les fichiers nommés `0` cassent le listage du répertoire
+  d’upload (`admin/config.php`)
+– Bug fix : Le listage de l’ancien et du nouveau répertoire d’upload
+  se fait à partir du répertoire courant au lieu du répertoire racine de
+  Wanewsletter (`admin/config.php`)
+– Ajout vérification si la copie s’est bien effectuée lors du
+  déplacement des fichiers joints avant de supprimer le fichier source
+– Bug fix : Mauvaise valeur de la balise <base> incluse dans les
+  newsletters HTML lorsque l’URL de chargement se termine par un '/'
+
+
+Version 2.3-beta2 (publiée le 6 février 2006)
+----------------------------------------
+
+– Bug fix : Erreur `sprintf(): Too few arguments in index.php on line
+  242` sur l’accueil dans certains cas
+– Bug fix : Connexion impossible au panneau de gestion de compte avec le
+  code abonné reçu à l’inscription
+– Affichage d’un message d’alerte dans la page des statistiques si le
+  répertoire `stats/` n’est pas accessible en écriture
+– Bug fix : Erreur « Query was empty » à la désinscription d’une
+  liste (ne concerne que MySQL < 4.1.x)
+– Bug fix : Système d’envoi du fichier de configuration non
+  fonctionnel dans les scripts d’installation et de mise à jour
+– Affichage de la taille maximum autorisée dans les formulaires proposant
+  le chargement de fichier
+– Bug fix : Utilisateur non marqué comme non-connecté lors de la déconnexion
+– Module de génération de mot de passe (cas des mots de passe perdus)
+  sur la page de connexion
+– Ajout version du serveur de base de données et timezone dans les
+  fichiers générés par le module de sauvegarde
+– Ajout support de SQLite 3.x
+– Ajout support de SQLite par le module de sauvegarde
+– Ajout support expérimental de Firebird 1.5
+– Déplacement du répertoire `sql/` vers `includes/sql/`
+– Mise en place des nouvelles classes de connexion aux bases de données
+– La nouvelle classe de connexion à PostgreSQL nécessite PHP ≥ 4.2.0
+– Bug fix : Liste de sélection d’année non-initialisée à la valeur
+  précédemment sélectionnée dans la section « statistiques »
+– Corrections de diverses fautes d’orthographe dans les fichiers de langue
+– Listes des mois et années en ordre ascendant plutôt que descendant
+  dans la page des statistiques
+– Bug fix : Choix du format des newsletters non pris en compte lors de
+  l’inscription
+– Bug fix : Connexion impossible à l’administration dans certains cas
+  (et avec cookies désactivés)
+– Bug fix : Inscription à plusieurs listes impossible avec une même
+  adresse email
+– Bug fix : Confirmation impossible dans certains cas d’inscriptions
+  successives à plusieurs listes avec une même adresse email
+– Bug fix : Échec de la réinstallation si le préfixe des tables
+  n’est pas celui par défaut
+– Bug fix : Séquences et index non supprimés lors d’une
+  réinstallation (PostgreSQL et SQLite)
+– Bug fix : Export XML non fonctionnel
+– Bug fix : Le nombre d’abonnés destinataires affiché à la fin des
+  envois était incorrect dans certaines circonstances
+– Nouveau mécanisme de sécurisation des envois (résoud les
+  désagréments dùs à un plantage)
+– Bug fix : Mauvais encodage du libellé "Se désinscrire" dans les
+  emails en UTF-8
+– Bug fix : Les copies de newsletters aux admins ayant activé cette
+  option étaient envoyées à chaque flôt d’envoi
+– Le moteur d’envoi « un abonné = un email » est désormais le
+  moteur d’envoi par défaut du script
+– Le script de mise à jour vérifie désormais l’absence de doublons
+  dans la table des abonnés avant de poursuivre son exécution
+– Le script en ligne de commande `contrib/wanewsletter` accepte désormais
+  l’argument --import-mail
+– Bug fix : Erreur SQL à l’importation d’emails si aucune adresse n’est valide
+– Bug fix : Nombreux bugs corrigés dans le module de sauvegarde pour
+  PostgreSQL
+
+
+Version 2.3-beta1 (publiée le 7 décembre 2005)
+----------------------------------------
+
+– Compatibilité avec PHP5 garantie
+– Support de SQLite
+– Retrait du support de Microsoft SQL Server (désactivé depuis la
+  version 2.2.3)
+– Passage en mode magic_quotes_gpc à Off
+– Ajout de la couche d’abstraction utilisant l’extension MySQLi de PHP
+– L’option de configuration 'hébergeur' a été retirée (il n’est
+  plus nécessaire de préciser manuellement qu’on est chez Online)
+– Upgrade de Wamailer en version 2.2 (déplacé dans `includes/wamailer/`)
+– Upgrade de DOM-Compat en version 20051030 (déplacé dans
+  `templates/DOM-Compat/`)
+– Mise à jour mineure du module de statistiques (essentiellement
+  esthétique :¬))
+– Pour les listes demandant une confirmation d’inscription, les
+  administrateurs concernés reçoivent désormais l’email d’avertissement
+  uniquement lorsque l’inscription est confirmée (dans le cas d’une liste
+  demandant une confirmation)
+– Échelle du graphique à barres variable
+– Séparation des mois et années en deux listes de sélection distinctes
+  dans `admin/stats.php`
+– Ajout de l’affichage du login de l’administrateur connecté dans le menu
+– Ajout de l’affichage dans la page de profil abonné de
+  l’administration du format choisi pour chaque liste multi-format
+– Conversion des images du thème du GIF vers PNG
+– Migration de la classe zipfile de `admin/tools.php` vers `includes/zip/`
+– Migration des classes *_backup de `admin/tools.php` vers les couches
+  d’abstraction respectives dans `sql/`
+– Ajout du support des styles de commentaires du standard SQL92 (``-- ``)
+  par la fonction make_sql_ary()
+– Les abonnés ayant choisi le format HTML reçoivent désormais un email
+  composé également d’une alternative texte (listes multi-format
+  uniquement)
+– Les newsletters peuvent désormais être chargées à partir d’une URL
+– Les profils des abonnés sont désormais modifiables via l’administration
+– Le script `options/extra.php` accepte désormais le paramètre
+  use-variable (voir la FAQ)
+– Le script `options/extra.php` accepte désormais les identifiants de
+  liste multiples (voir la FAQ)
+– Ajustements sur le design, notamment au niveau des tailles de polices
+– Changement du jeu de caractère pour le français de latin9 à latin1
+  (problème entre autre des apostrophes courbes transformées en &#8217;)
+– Passage des newsletters en utf-8 au moment de l’envoi en cas de
+  présence de caractères provenant de Windows-1252
+– Constante TRANSLITE_INVALID_CHARS dans `includes/constantes.php`
+  permettant de désactiver le passage des newsletters en utf-8 (active du
+  même coup pour les lettres au format texte la translitération des
+  caractères posant problème)
+– Les inscriptions nécessitent désormais toujours une confirmation si la
+  liste le demande, même si l’email est déjà présent dans une autre liste
+  gérée par Wanewsletter (option à la configuration)
+– L’espace disque occupé par les pièces jointes et les fichiers de
+  statistiques est maintenant affiché sur l’accueil
+– Ajout support des formats de nombre en fonction de la langue
+– Les envois peuvent désormais être annulés
+– Les listes peuvent désormais être privées (non affichées dans le
+  formulaire `subscribe.php`)
+– Possibilité d’export basique des listes d’abonnés au format XML
+– Ajout d’une traduction française non-officielle de la licence GPL
+  dans le paquet (fichier `COPYING.fr` situé sous la racine)
+– En cas de tentative d’inscription à une liste déjà en attente
+  d’une confirmation pour l’adresse email donnée, un nouvel email de
+  demande de confirmation est envoyé à la-dite adresse email
+– La vérification de présence des tags {LINKS} dans les lettres au
+  moment de l’envoi peut être désactivée en modifiant la valeur de la
+  constante DISABLE_CHECK_LINKS dans `admin/envoi.php` (voir la note sur ce
+  sujet dans la FAQ)
+– Optimisation de l’outil d’importation d’emails (le gain en vitesse
+  sur une importation de 5000 emails est d’environ 80 %)
+– Nom de serveur et nom d’utilisateur de base de données sont
+  désormais optionnels pour l’installation et le fonctionnement du script
+– Ajout d’une balise <base> aux lettres HTML importées via URL (sur une
+  suggestion avisée de Samuel)
+– Nouveau système de confirmation permettant la réduction d’environ
+  75 % de la longueur des liens de confirmation et de désinscription
+– Les rédacteurs peuvent demander à recevoir une copie des newsletters
+  envoyées à une liste
+– Les administrateurs peuvent désormais être prévenus des désinscriptions
+– Simplification du formulaire par défaut (suppression de
+  `form_header.html` et `form_footer.html`, tout le code html se trouve
+  désormais dans `templates/subscribe_body.tpl`)
+– Amélioration de l’affichage des newsletters au format texte (dans la
+  fenêtre de prévisualisation et dans la section « archives »)
+– Ajout possibilité de spécifier des champs supplémentaires à l’inscription
+– Intégration des corrections de bugs effectuées dans la version 2.2.8
+– Bug fix : Les objets embarqués avec le scheme `cid:` ne sont pas
+  capturés pour certaines balises étalées sur plusieurs lignes
+– Bug fix : Perte du modèle de lettre lors des ajouts ou suppressions de
+  pièce jointe si le statut de la newsletter est changé dans le même temps
+  en « newsletter normale »
+– Possibilité d’export sous forme d’archive Tarball des newsletters
+  archivées (nécessite le paquet « Archive_Tar » de PEAR)
+– Bug fix : Backup des tables incorrect avec l’outil de sauvegarde
+  (concerne MySQL < 3.23.20 uniquement)
+– Mise à jour de la documentation
+
+
+Version 2.2.13 (publiée le 14 novembre 2006)
+----------------------------------------
+
+– Corrections mineures sur les fichiers de langue
+– Modification de la fonction de vérification syntaxique des mots de
+  passe pour accepter des mots de passe plus complexes
+– Bug fix : Erreur fatale à l’envoi en utilisant `options/cron.php` et
+  les envois par flot
+– Bug fix : Corrections diverses pour la compatibilité des scripts
+  JavaScript avec Konqueror et Safari
+– Bug fix : Erreur « 504 5.5.2 : Helo command rejected: need
+  fully-qualified hostname » avec certains serveurs SMTP dans certains cas
+– Security fix : Faille potentielle avec $GLOBALS et register_globals à
+  on (http://bugs.php.net/bug.php?id=31440)
+– Bug fix : Barre d’ascenseur des textarea réinitialisée lorsqu’on
+  ajoute le lien de désinscription (navigateurs Gecko-like)
+– Bug fix : Les champs TEXT SQL ne doivent pas avoir de valeur par défaut
+– Security fix : Rejet des noms de fichier uploadé comportant des
+  caractères de contrôle, en particulier l’octet NULL
+– Security fix : Vulnérabilités XSS diverses
+– Upgrade de Wamailer en version 2.4
+
+
+Version 2.2.12 (publiée le 15 juillet 2006)
+----------------------------------------
+
+– Bug fix : Interface d’administration inutilisable sur Safari (update
+  DOM-Compat)
+– Bug fix : Problèmes avec variable serveur SCRIPT_NAME et PHP installé en CGI
+– Bug fix : Erreur de syntaxe potentielle dans `includes/tags.inc.php`
+– Corrections dans le fichier de langue anglaise (merci à Nadar)
+– Bug fix : Erreur SQL lors de la suppression d’une liste quand on
+  choisit l’option de déplacer les abonnés et archives à une autre liste
+– Bug fix : Opération de suppression d’une liste et de ses abonnés et
+  archives excessivement lente (plusieurs dizaines de secondes)
+
+
+Version 2.2.11 (publiée le 14 avril 2006)
+----------------------------------------
+
+– Bug fix : srand() non appellée avant l’utilisation de rand() dans la
+  fonction generate_key() (PHP < 4.2.0)
+– Bug fix : Les mots contenant des caractères non-ascii ne sont pas pris
+  en compte dans le formatage des archives de newsletters texte
+– Bug fix : URLs faussées dans les archives de newsletters texte
+– Bug fix : Emails envoyés en double sur certaines configurations
+  (restrictions PHP + Linux + vieux MTAs)
+– Bug fix : Script `development/cleaner.php` cassé
+– Bug fix : Notification d’inscription non envoyée dans certains cas
+
+
+Version 2.2.10 (publiée le 27 février 2006)
+----------------------------------------
+
+– Bug fix : Mauvais traitement des caractères spéciaux dans certains
+  cas (perte de caractères backslashe)
+– Security fix : Vulnérabilité de la librairie d’envoi d’emails aux
+  injections d’en-têtes (Wamailer)
+– Bug fix : Décodage incorrect des séquences hexadécimales telles que
+  `%C2` dans les mots clés de recherche dans la section « inscrits »
+– Bug fix : Caractères spéciaux % et _ non échappés dans la requète
+  SQL de recherche dans la section « inscrits »
+– Bug fix : Sauts de ligne non précédés d’un retour chariot, dans
+  les emails envoyés, dans certains cas où ils devraient l’être (Windows
+  only)
+– Bug fix : Les fichiers nommés `0` cassent le listage du répertoire
+  d’upload dans `admin/config.php`
+– Bug fix : Le listage de l’ancien et du nouveau répertoire d’upload
+  se fait à partir du répertoire courant au lieu du répertoire racine de
+  Wanewsletter dans `admin/config.php`
+– Ajout vérification si la copie s’est bien effectuée lors du
+  déplacement des fichiers joints avant de supprimer le fichier source
+– Corrections mineures sur la traduction anglaise (thanks to Adam ;¬))
+
+
+Version 2.2.9 (publiée le 6 février 2006)
+----------------------------------------
+
+– Bug fix : Les objets embarqués avec le scheme `cid:` ne sont pas
+  capturés pour certaines balises étalées sur plusieurs lignes
+– Bug fix : Perte du modèle de lettre lors des ajouts ou suppressions de
+  pièce jointe si le statut de la newsletter est changé dans le même temps
+  en « newsletter normale »
+– Bug fix : Backup des tables incorrect avec l’outil de sauvegarde
+  (concerne MySQL < 3.23.20 uniquement)
+– Corrections de diverses fautes d’orthographe dans les fichiers de langue
+– Bug fix : Connexion impossible à l’administration dans certains cas
+  (et avec cookies désactivés)
+– Bug fix : Séquences et index non supprimés lors d’une
+  réinstallation (PostgreSQL)
+– Bug fix : Nombreux bugs corrigés dans le module de sauvegarde pour
+  PostgreSQL
+
+
+Version 2.2.8 (publiée le 25 novembre 2005)
+----------------------------------------
+
+– Bug fix : Éventuelles transactions SQL non commitées proprement à
+  l’appel de $db->close_connexion() (MySQL 4.1.x)
+– Bug fix : NOT NULL manquant dans le schéma des tables pour PostgreSQL
+  (`setup/schemas/postgre_tables.sql`)
+– Bug fix : D’éventuels fichiers de statistiques vides (situation
+  anormale) pouvaient empécher l’affichage du graphique à barres dans
+  `admin/stats.php`
+– Bug fix : `Invalid image dimensions in stats.php on line 219` en cas de
+  différences importantes d’un jour à l’autre (graphique à barres)
+– Bug fix : Images du module de statistiques non mises à jour systématiquement
+– Bug fix : Variables indéfinies $orig_ary et $repl_ary dans la fonction
+  convert_time() (`includes/functions.php`)
+– Bug fix : Problème potentiel à la comparaison des IP dans
+  `includes/functions.php`; passons par strncasecmp()
+– Bug fix : L’ajout dans la version 2.2.6 du support du protocole FTP
+  pour la récupération de fichiers distants ne vérifiait pas la présence de
+  l’extension FTP de PHP
+– Bug fix : fclose() non appelé pour refermer le flux de lecture du
+  fichier de statistiques
+– Bug fix : Variable $num_per_day non définie dans `admin/stats.php`
+– Bug fix : session_length non pris en compte
+– Bug fix : La fonction make_sql_ary() mangeait les sauts de lignes non
+  précédés d’un retour chariot
+– Bug fix : Message d’erreur erroné pour les URLs inaccessibles lors
+  de l’ajout de pièces jointes à la newsletter
+– Bug fix : Bouton de soumission non nommé dans
+  `templates/admin/select_log_body.tpl`
+– Bug fix : Erreur mineure dans la gestion des erreurs pour les fichiers
+  uploadés
+– Bug fix : `Notice: Undefined variable embed_ary in class.output.php on
+  line 618` dans certains cas
+– Bug fix : Tableaux multi-dimensionnels traités incorrectement par la
+  fonction strip_magic_quotes_gpc() (non-passage par référence)
+– Bug fix : Corruption potentielle de données lors des envois
+  d’archives (`profil_cp.php`)
+– Bug fix : Caractères spéciaux HTML non échappés dans le sujet des
+  nouvelles (`profil_cp.php`)
+– Bug fix : Installation impossible avec d’autres types de base de
+  données que MySQL si l’extension mysql de PHP n’est pas présente
+– Bug fix : Colonne purge_next non mise à jour lors des purges de listes
+  si aucune suppression n’a lieu
+– Bug fix : Statistiques non mises à jour lors des confirmations
+  d’inscription ou des inscriptions avec des emails déjà présents dans
+  d’autres listes
+– Bug fix : Problème potentiel dans la comparaison des codes abonné
+  (`includes/class.form.php`)
+– Bug fix : Passage tags internes de EMAIL et CODE à WA_EMAIL et WA_CODE
+  dans profil_cp.php
+
+
+Version 2.2.7 (publiée le 25 octobre 2005)
+----------------------------------------
+
+– Bug fix : Boutons d’ajout du tag {LINKS} inopérants sur MSIE + tag
+  ajouté à chaque fois que l’on activait le bouton de prévisualisation
+– Bug fix : Wanewsletter et compatibilité avec PHP5 (l’appel de
+  n’importe quelle page affichait une page blanche)
+– Bug fix : `Notice : Trying to get property of non-object in
+  class.output.php on line 323` lors de la déconnexion de l’administration
+  (avec le mode de débuggage activé)
+– Bug fix : Suppression de plusieurs appels inutiles à stripslashes()
+  dans `admin/view.php`
+– Security fix : Faille potentielle dans le fichier
+  `includes/class.attach.php` (injection SQL)
+– Bug fix : Caractère ``<`` spécial en HTML interprété dans la
+  fenêtre de prévisualisation des newsletters au format texte
+– Bug fix : Corrections mineures dans la documentation (sur une
+  suggestion avisée de Nadar)
+
+
+Version 2.2.6 (publiée le 27 septembre 2005)
+----------------------------------------
+
+– Bug fix : Présence de chaînes `` à l’affichage de la page
+  d’édition du profil (`templates/edit_profile_body.tpl`)
+– Bug fix : Balise </li> manquante dans `templates/login_body.tpl`
+– Support des images SVG dans la popup de visualisation
+– Bug fix : Correction de deux erreurs de syntaxe présentes dans le
+  fichier `templates/wanewsletter.css`
+– Grosse mise à jour du script `templates/compatible.js`. Utilisation de
+  DOM-Compat, version très avancée et sous licence LGPL
+– Corrections orthographiques mineures dans les fichiers
+  `language/lang_english.php` et `language/lang_francais.php`
+– Support du protocole FTP pour la récupération de fichiers distants
+  dans la page d’envoi
+– Bug fix : Au lancement de l’envoi des emails, le script ne vérifiait
+  pas si chaque fichier ciblé par un scheme `cid:` dans la newsletter HTML
+  était bien présent dans la liste des fichiers joints
+– Changement des adresses d’informations pour le format des dates
+  (Pointe désormais vers php.net au lieu de phpcodeur.net)
+– Mise à jour de la classe zipfile (dans `admin/tools.php`) à partir de
+  phpMyAdmin 2.6.4
+
+
+Version 2.2.5 (publiée le 11 septembre 2004)
+----------------------------------------
+
+– Bug fix : Sous Mozilla, le chargement de la fenêtre de
+  prévisualisation des newsletters ne se terminait jamais (Bug 81980)
+– Corrections diverses dans les scripts JavaScript
+– Bug fix : Certains caractères spéciaux en PHP pouvaient poser
+  problème dans le fichier `config.inc.php` si présents dans le mot de passe
+  ou autre
+– Bug fix : Certaines ip encodées en hexadécimal étaient comprises
+  comme un nombre par le script (eg : `500e0105`) lors des requètes sur la
+  base de données, ce qui provoquait une erreur SQL
+– Désactivation de l’option de vérification approfondie des emails.
+  Cette fonctionnalité n’est pas suffisamment au point
+– Les tags internes {EMAIL} et {CODE} sont renommés respectivement en
+  {WA_EMAIL} et {WA_CODE} pour éviter des conflits potentiels avec des tags
+  utilisateurs
+
+
+Version 2.2.4 (publiée le 6 juin 2004)
+----------------------------------------
+
+– Ajout de routines d’optimisation des tables après les opérations de
+  suppressions massives
+– Bug fix : Problèmes avec la validation des inscriptions par cron
+  (problème non corrigé de la version 2.2-rc4)
+– Bug fix : Erreur de parsing XML à l’affichage sous Firefox dans certains cas
+– Bug fix : Boutons de prévisualisation et d’ajout de lien non
+  fonctionnels sous Explorer mac et Safari (??)
+– Bug fix : Lors des envois via SMTP, les points en début de ligne dans
+  l’email étaient supprimés par le serveur (mauvais échappements des
+  points en début de ligne)
+– Ajout du support des mises en gras, italique et souligné dans la
+  fenêtre de prévisualisation des lettres de diffusion au format texte
+  (caractères astérique, barre oblique et underscore pour styler un email en
+  texte brut)
+– Corrections mineures dans les traductions anglaise et espagnole
+– Corrections mineures dans le fichier `newsletter.php`
+– Bug fix : Les envois d’emails sur les serveurs de Free.fr ne
+  fonctionnaient pas (dù à une directive de configuration de PHP non
+  accessible et donc considérée comme étant à Off)
+– Ajustements divers dans les templates et la feuille de style CSS
+– Lors des envois par flots, le message de fin d’envoi du flot indique
+  maintenant le nombre d’envois effectués depuis le début ainsi que le
+  nombre total de destinataires
+
+
+Version 2.2.3 (publiée le 6 mars 2004)
+----------------------------------------
+
+– Bug fix : Corrections dans le système d’inscription. Les personnes
+  qui s’étaient précédemment inscrites sans avoir confirmé ne pouvaient
+  pas procéder à une autre inscription tant que la précédente n’avait pas
+  été supprimée de la table des inscrits.
+– Bug fix : Certains lecteurs d’emails ne parvenaient pas à décoder
+  les pièces jointes. Cela était dù à une légère erreur dans la méthode
+  d’encodage par le script
+– Corrections mineures sur la méthode de réception des fichiers distants
+  (fichiers à joindre à la lettre de diffusion)
+– Bug fix : Connexion impossible au panneau de profil des abonnés
+– Mise à jour mineure dans la documentation du script (envois d’emails
+  désormais autorisés par Free.fr)
+– Ajout de la fonction is_disabled_func() pour les cas d’utilisation de
+  certaines fonctions parfois désactivées par les hébergeurs (notamment
+  ini_set() et set_time_limit()) et qui faussaient les messages d’erreurs
+  éventuels
+– Ajout d’une icône en forme de trombone devant les sujets d’archives
+  qui ont des fichiers joints
+– Désactivation des options SMTP et cron dans les différents formulaires
+  si la fonction fsockopen() est désactivée dans la configuration de PHP
+– Refonte d’une partie du code (système d’affichage des pages) pour
+  le rendre plus clair et propre (aucune incidence sur le fonctionnement du
+  script; changement purement interne)
+– Bug fix : L’id de session était transmis par l’url à la
+  soumission du formulaire de choix d’outils (fichier `tools.php`) même
+  quand les cookies étaient acceptés (variable S_HIDDEN_FIELDS doublée dans
+  les templates)
+– Bug fix : Le code javascript d’insertion du tag {LINKS} au sein de la
+  newsletter ne fonctionnait pas sous Mozilla (le tag était ajouté à la fin
+  de la newsletter)
+– Bug fix : Tag </form> manquant dans le template `install.tpl`
+– Bug fix : Balise <p> manquante dans la page de visualisation des listes
+  dans certaines conditions de permissions utilisateur (merci à Stéph.)
+– Corrections mineures dans la fonction Location() (ajout de l’envoi du
+  statut de redirection 302)
+– Bug fix : Les données renvoyées par le script extra.php l’étaient
+  sous le type de média par défaut de PHP (`text/html`) au lieu de
+  `text/javascript`
+– Bug fix : Erreur SQL dans `profil_cp.php` lorsqu’un abonné demandait
+  à recevoir des archives mais n’en sélectionnait aucune (merci à Stéph.)
+– Bug fix : Erreurs SQL diverses sous Microsoft SQL Serveur. Le support
+  pour cette base de données est temporairement désactivé
+– Bug fix : Le fichier temporaire créé lors de la visualisation d’une
+  image jointe n’était pas supprimé (option FTP uniquement)
+– Bug fix : Variable S_HIDDEN_FIELDS manquante dans le template
+  `login_body.tpl`
+– Correction mineure dans le fichier `welcome_form2.txt` (erreur
+  d’orthographe)
+– Bug fix : L’installation n’était pas fonctionnelle sous PostgreSQL
+  (Transaction non commitée)
+
+
+Version 2.2.2 (publiée le 17 janvier 2004)
+----------------------------------------
+
+– Corrections mineures dans la feuille de style et les templates
+– Bug fix : Mauvais masque de vérification pour les mots de passe (le
+  script refusait les mots de passe inférieures à 6 caractères alors que ce
+  devait être 4 caractères)
+– Bug fix : Erreur dans le code javascript de la page d’envoi, la popup
+  de prévisualisation de la newsletter HTML ne fonctionnait pas sous certains
+  navigateurs
+– Bug fix : Impossible de télécharger certains fichiers joints ainsi
+  que les fichiers de sauvegarde ou d’export (ou fichiers corrompus)
+– Bug fix : Les sauvegardes de base de données MySQL à partir de
+  l’outil de sauvegarde étaient inutilisables
+
+
+Version 2.2.1 (publiée le 9 décembre 2003)
+----------------------------------------
+
+– Corrections mineures dans la méthode send_file() dans
+  `includes/class.attach.php` (ajout de l’envoi de l’entête
+  `Content-Length`)
+– Bug fix : Ajout de caractères de protection ( ` ) pour les noms de
+  base et de table lors des opérations de sauvegarde ou restauration (fichier
+  `tools.php`) pour éviter des erreurs avec les noms de base ou de tables peu
+  orthodoxes
+– Bug fix : Message `Duplicate entry 'X-Y' for key 1` avec X et Y
+  représentant des nombres lors de la mise à jour d’une version 2.1.x à
+  une version 2.2.x (lorsqu’une adresse email était inscrite plusieurs fois
+  à une même liste de diffusion)
+– Ajout d’instructions supplémentaires dans le fichier `readme_xx.html`
+– Corrections dans la documentation du script
+– Correction du masque de validation des mots de passe pour que ceux ci ne
+  puissent commencer ou se terminer par un underscore ou un signe moins
+– Bug fix : La méthode decode_mime_header() de la classe pop était
+  bugguée ce qui pouvait poser des problèmes pour les inscriptions par email
+– Security fix : Faille potentielle dans le fichier `newsletter.php`
+– Bug fix : Problème de récupération de la dernière erreur retournée
+  lors des envois (donc mauvais message d’erreur affiché)
+– Bug fix : Le script `options/cron.php` pour les validations
+  d’inscription ne marchait pas
+– Corrections dans les templates et les scripts javascript
+– Bug fix : Problème de variable non initialisée dans le fichier
+  `stats.php` lorsqu’il n’y avait pas encore d’inscrit (l’image du
+  camenbert n’apparaissait donc pas)
+– Ajout fichier de développement `delete_mail.php` dans le dossier
+  development/. Expérimental
+– Compression gzip des fichiers joints avant téléchargement dans
+  l’administration (si la compression gzip est supportée par le navigateur)
+– Bug fix : Problème d’apostrophes non échappées lors des mises à
+  jour à partir de versions 2.1.x
+
+
+Version 2.2.0 (publiée le 29 octobre 2003)
+----------------------------------------
+
+– Ajout de la méthode set_charset() dans la classe d’envoi d’emails
+– Bug fix : Les abonnés avaient accés aux archives de toutes les listes
+  dans le panneau de profil abonné
+– Bug fix : Augmentation de la longueur maximale (passe de 30 caractères
+  à 250 caractères) du champs email lors de la connexion au panneau de profil
+– Corrections mineures dans le fichier `options/cron.php`
+
+
+Version 2.2-rc4 (publiée le 12 octobre 2003)
+----------------------------------------
+
+– Bug fix : Problème d’affichage sous Safari (bug du navigateur)
+– Bug fix : Le redimensionnement de la popup de visualisation des images
+  jointes ne fonctionnait pas sur certains navigateurs
+– Bug fix : Message `Fatal error: Call to undefined function:
+  validate_lang()…` lorsqu’on tentait d’éditer son profil
+  d’utilisateur
+– Corrections diverses dans les fichiers de langage
+– Bug fix : Les tags personnalisés ne fonctionnaient pas
+– Ajout possibilité de spécifier le port de connexion au serveur FTP
+  dans la configuration
+– Correction sur les tables abonnes et abo_liste pour supporter un plus
+  grand nombre d’abonnés
+– Bug fix : Sur certains environnements serveurs, le script
+  d’installation n’affichait qu’une page blanche (Merci à hervelaf pour
+  la solution temporaire)
+– Changement de jeu de caractère pour la langue française (Utilisation
+  de ISO-8859-15 au lieu de ISO-8859-1). Cela peut être changé dans le
+  fichier de langage ($lang['CHARSET'])
+– Bug fix : L’utilitaire diff_lang.php était inutilisable
+– Ajout d’un formulaire de suppression rapide d’adresses email dans la
+  section des listes d’inscrits
+– Corrections diverses dans la FAQ du script
+– Traduction du script en espagnol (Merci à Kokoyaya)
+– Correction sur les liens dans les emails: Encodage des caractères
+  illégaux dans une URI et & passés en &amp; pour les emails HTML
+– Ajout de la fonction cut_str() pour limiter la longueur des longs textes
+  (ex: sujet d’une newsletter) à l’affichage dans l’administration
+– Ajout dans le panneau de profil des abonnés de la possibilité de
+  recevoir des newsletters archivées
+– Bug fix : Un fichier nommé "upload" était parfois joint aux
+  newsletters. Cela arrivait quand des fichiers étaient joint à la newsletter
+  et que l’un d’eux n’était plus sur le serveur
+– Bug fix : La fonction hidden_fields() fonctionnait incorrectement. Il
+  en résultait des pertes de données (disparition de fichiers joints,
+  newsletter doublée dans la base de données…)
+– Bug fix : Certains types de fichiers joints n’étaient pas
+  téléchargés par Opera, mais affichés à l’écran
+
+
+Version 2.2-rc3 (publiée le 17 août 2003)
+----------------------------------------
+
+– Ajout du remplacement du tag {LINKS} dans la fenêtre de prévisualisation
+– Ajout du chargement des extensions PHP nécessaires si le serveur et la
+  configuration de PHP le permettent
+– Bug fix : Correction d’un bug d’affichage sur la page des statistiques
+– Bug fix : Les emails n’étaient pas envoyés si l’option SMTP
+  était activée (la connexion au serveur SMTP n’était pas proprement
+  fermée)
+– Bug fix : Correction d’un masque de recherche dans class.attach.php,
+  les adresses sécurisées n’étaient pas acceptées
+– Pour les confirmations d’inscription gérées par cron, le script se
+  base maintenant sur la date d’envoi présente dans les entêtes de
+  l’email
+– Bug fix : Lors de la suppression complète d’une liste (sans
+  déplacement des abonnés et logs), le script ne faisait pas la distinction
+  avec les abonnés d’autres listes (suppression potentielle d’abonnés
+  n’appartenant pas à la liste supprimée)
+– Bug fix : Impossible de supprimer une liste en déplacant ses abonnés
+  et logs vers une autre liste
+– Ajout de la méthode escape() dans les couches d’abstraction
+– Corrections mineures dans les couches d’abstraction
+– Bug fix : Les mots d’une recherche dans la liste des inscrits
+  n’étaient pas passés dans stripslashes() lors du passage dans l'URL
+– Bug fix : Les fichiers joints contenant une apostrophe ( ' ) faisaient
+  planter le script de mise à jour à partir des versions 2.0.x et 2.1.x
+– Ajout gestion du déplacement des fichiers joints si le dossier de
+  stockage est changé ou que l’option FTP est activée/désactivée lors des
+  réglages de la configuration
+– Bug fix : Le tag {NAME} n’était pas remplacé par une chaîne vide
+  (moteur d’envoi en copie cachée)
+– Ajout gestion des tags personnalisés
+– Ajout option de sauvegarde du log (dialogue script <-> serveur) dans un
+  fichier texte pour les classes smtp et POP
+– Bug fix : Les sujets des emails qui étaient encodés en
+  quoted-printable n’étaient pas correctement visualisés sur certains
+  gestionnaires d’emails
+– Bug fix : À la fin d’un envoi, le champs send dans la table
+  abo_liste n’était pas remis à 0; le résultat est qu’à l’envoi
+  suivant, le script disait qu’il n’y avait pas encore d’abonné
+– Ajout d’un label sur le lien de désinscription pour les newsletters
+  HTML ( Se désinscrire apparait au lieu du lien lui même)
+– Bug fix : Longs entêtes pas toujours interprétés dans les emails
+  (saut de ligne doublé; lié à une mauvaise fonctionnalité de la fonction
+  mail())
+– Refonte des templates et de la feuille de style du script (Mise à la
+  norme XHTML 1.0 Strict et CSS 2
+– Bug fix : Les codes HTML et PHP fournis à la création d’un
+  formulaire (section outils) n’étaient pas passés dans htmlentities() et
+  pouvaient donc ne pas s’afficher
+– Ajout du panneau de gestion de profil par les abonnés (`profil_cp.php`)
+– Centralisation des hauts de page et pied de page avec les fonctions
+  wa_headers(), page_header() et page_footer() Suppression de page_header.php
+  et page_footer.php
+– Bug fix : Contrainte manquante sur la table config pour MsSQL lors de
+  la mise à jour à partir d’une version 2.0.x ou 2.1.x
+– Bug fix : Mauvaise routine pour personnaliser l’email avec le pseudo
+  de l’abonné (engine_send.php)
+– Ajout possibilité de définir la langue à utiliser pour l’affichage
+  des formulaires d’inscription (voir le chapitre 16 de la faq)
+
+
+Version 2.2-rc2b (publiée le 1er juillet 2003)
+----------------------------------------
+
+– Bug fix : Les comptes d’abonnés supprimés via l’administration
+  n’étaient pas correctement supprimés
+– Bug fix : Installation impossible sur PostgreSQL
+– Bug fix : Suppression de fichiers joints impossible sous PostgreSQL
+– Bug fix : Inscription impossible sous PostgreSQL
+– Bug fix : Un abonné possédant déja un compte, et qui s’abonnait à
+  une autre liste reçevait quand même un email de confirmation
+– Bug fix : Les liens de désinscription n’étaient pas placés lors de
+  l’envoi d’une newsletter à une liste multi-format et en utilisant le
+  moteur par copie cachée (problème identique si utilisation de l’option
+  cron)
+– Ajout du support pour PostgreSQL pour les modules de sauvegarde et
+  restauration de la base de données
+– Bug fix : Message `Template->loadfile(): Aucun fichier spécifié pour
+  le modèle body` lorsqu’on sélectionne une liste dans la page outils
+– Bug fix : Les fichiers ayant l’extension .sql étaient refusés par
+  le script de restauration
+– Bug fix : Modules de restauration et d’importation cassés (erreur à
+  la lecture du fichier)
+– Bug fix : Mauvais numéro de version dans la seconde édition du
+  package de la RC1
+– Security fix : addslashes() sur $email et $code dans `options/cron.php`
+  pour éviter des plantages SQL dùs à d’éventuels simples quotes
+– Bug fix : Message `Undefined variable nl_config…` lorsqu’on
+  ajoutait un fichier excédant le poids maximal de la newsletter
+– Ajout stockage dans la base de données du nombre de newsletters
+  envoyées pour chaque liste (n’est plus conditionné par la suppression de
+  logs)
+– Security fix : Faille de sécurité dans le fichier newsletter.php
+  ($waroot) :¬/
+– Ajout stockage dans la base de données du nombre de destinataire de
+  chaque newsletter après un envoi
+– Bug fix : En environnement UNIX, les emails d’inscription,
+  confirmation, etc… étaient reçus en double (c’est un problème de
+  fonctionnement de la fonction mail() de PHP, non du script lui même)
+– Bug fix : Variables de langage manquantes dans admin.php
+– Bug fix : Variable de langage manquante dans envoi.php
+– Ajout option de vérification approfondie de l’email lors de la
+  première inscription avec vérification de l’existence du domaine et du
+  compte
+– Bug fix : Certaines variables non traitées à l’affichage lors de la
+  modification d’une liste (htmlspecialchars() et stripslashes() )
+– Suite à diverses modifications, le script demande maintenant une
+  version de php >= 4.1.0
+– Bug fix : Le script ne gérait pas correctement les fichiers uploadés
+  dont le nom contenait un ou plusieurs simple quotes
+– Bug fix : Certains messages d’erreur ne concernaient pas la bonne
+  requète lors de la mise à jour à partir d’une version 2.0.x ou 2.1.x
+– Ajout de la traduction anglaise dans le package (Merci à Rleroux)
+– Ajout possibilité d’envois des emails en différé avec cron (si cron
+  disponible)
+– Bug fix : NOT au lieu de NOT NULL dans une requète de création de
+  table à l’installation sous SQL Server
+– Bug fix : Si utilisation de l’option FTP, les fichiers temporairement
+  rapatriés sur le serveur lors de l’envoi ou pour téléchargement
+  n’étaient pas ultérieurement supprimés
+– Ajout possibilité d’uploader des fichiers distants pour les joindre
+  à la newsletter
+– Bug fix : Le nom des fichiers uploadés n’était pas correctement vérifié
+– Bug fix : Message `Notice : Undefined variable: matche in
+  class.attach.php on line 148` sur la page d’envoi, lorsqu’on ajoute un
+  fichier (avec l’option FTP)
+– Bug fix : Problèmes potentiels avec les entêtes de téléchargement
+  (téléchargement de fichiers joints)
+– Bug fix : Les utilisateurs pouvaient potentiellement être supprimés
+  par d’autres utilisateurs n’ayant pas les droits d’administrateur
+– Mise à jour de la documentation de la classe Mailer
+– Ajout wordwrap pour les emails au format texte (non quoted-printable)
+– Ajout d’une page intermédiaire entre le moment où on clique sur
+  "envoyer" et l’envoi proprement dit. (préparation de la newsletter pour
+  cron)
+– Bug fix : Problème d’affichage dans le module de stats (camenbert)
+  si les différences de nombre d’inscrits étaient très différents d’une
+  liste à une autre (de l’ordre de 1 pour > 1000)
+– Bug fix : Problème avec la fonction wa_realpath() sous multimania.
+  (solution définitive restant à trouver)
+
+
+Version 2.2-rc1 (publiée le 14 juin 2003)
+----------------------------------------
+
+– Bug fix : Message `Notice : Undefined variable: s_nav_links in
+  page_header.php…` sur la page de sélection de liste
+– Bug fix : Plantage potentiel du script de mise à jour, message:
+  `Notice : Undefined offset 1…`
+– Bug fix : Problème potentiel si le port du serveur est 8080
+– Bug fix : Encodage "quoted-printable" incorrect dans la classe
+  d’envoi d’emails
+– Bug fix : Les retours de ligne n’étaient pas pris en compte lors de
+  la visualisation des archives au format texte
+– Les fichiers joints incorporés (embedded) dans une newsletter HTML sont
+  maintenant visibles dans la fenêtre de prévisualisation
+– Bug fix : Lors de la création des statistiques pour un mois donné,
+  tous les jours n’étaient pas forcément pris en compte
+– Ajout de la fonction clean_stats() dans functions.stats.php pour
+  centraliser les traitements sur les fichiers des statistiques
+– Bug fix : Mauvais appel de tag dans update.php (TITLE au lieu de L_TITLE)
+– Optimisation de l’outil d’importation (une boucle au lieu de deux)
+– Bug fix : Message `Undefined property: query_result in mysql.php on
+  line 227` sur certaines configurations lors de la déconnexion
+– Ajout retour de ligne après la balise {LINKS} (lors de la composition
+  d’une newsletter) (suggéré par Marc)
+– Corrections apportées sur la fonction make_sql_ary()
+– Bug fix : L’hébergeur n’était pas préselectionné sur la page de
+  configuration (non utilisation de $selected)
+– Mises à jour dans la configuration et dans la classe mailer dù au fait
+  que Nexen autorise désormais la fonction mail() non bridée
+– Bug fix : Les emails de changement de mot de passe, et aux nouveaux
+  utilisateurs du script n’étaient pas envoyés lorsque le mode SMTP était
+  sélectionné
+– Nombreuses corrections/améliorations apportées dans la classe Wamailer
+– Ajout du support des fichiers zip pour les modules d’importation et de
+  restauration (PHP >= 4.1.0 only)
+– Ajout possibilité d’inscription/désinscription ..etc.. par l’email
+  de la liste et appel automatisé de `options/cron.php` par cron
+– Bug fix : Les administrateurs qui demandaient à être prévenus des
+  nouvelles inscriptions et qui n’avaient pas auth_view à 1 ne recevaient
+  pas la notification
+
+
+Version 2.2-beta2 (publiée le 15 mai 2003)
+----------------------------------------
+
+– Bug fix : Liens cassés dans les emails d’inscription/confirmation
+– Bug fix : Gestionnaire d’erreur non fonctionnel dans subscribe.php
+– Bug fix : Le gestionnaire d’erreur ne tenait pas compte du prefixe @
+  et affichait toutes les erreurs
+– Bug fix : Plantage du script de mise à jour si des apostrophes
+  étaient présentes dans les données de la base de données
+– Bug fix : Popup de visualisation des images uploadées non fonctionnelle
+– Bug fix : ID de session non transmis dans le tag html image dans la
+  popup de visualisation
+– Correction/amélioration des entêtes d’affichage dans la popup de
+  visualisation
+– Bug fix : Affichage de la langue de l’utilisateur au lieu de celle
+  par défaut dans la config générale du script
+– Bug fix : Erreur potentielle dans `includes/functions.stats.php` avec
+  chmod(), ce qui empéchait l’affichage des images
+– Pour pallier au bug précédent, vérification lors de la config du
+  script, si le module de statistiques est activé, que le dossier des stats
+  est accessible en écriture
+– Ajout d’une fonction d’envois de faux header lors des longues
+  boucles du script (backup, envois, restauration, …) pour éviter les time
+  out avec certains navigateurs
+– Mise à la norme XHTML 1.0 Transitional de la documentation HTML du
+  script et des templates
+– Bug fix : Champs caché html non valide dans `admin/tools.php` (ligne 377)
+– Amélioration du code javascript de la page d’envoi, pour repérer le
+  placement du curseur lors d’ajout des liens
+– Bug fix : `Missing argument 2…` avec le module de restauration lors
+  de la restauration des tables et données
+– Amélioration de la fonction de navigation par page
+– Ajout fonction mozilla_nav()
+– Corrections apportées dans les fichiers de language
+– Bug fix : Problème potentiel avec l’utilisation de file() dans
+  `options/show.php` et `include/class.attach.php`, remplacé par une routine
+  fopen(), feof(), fread()
+– Bug fix : A l’ajout d’un fichier joint, le script vérifiait la
+  table des extensions, sans distinction de liste
+– Ajout gestion des blocks dans les modèles d’emails par la classe
+  mailer (ne gère pas les blocks imbriqués)
+– Bug fix : Impossible de réutiliser un fichier joint précédemment
+  uploadé d’une autre newsletter, le script ne le détectait pas sur le
+  serveur (utilisation du nom réel au lieu du nom physique)
+
+
+Version 2.2-beta (publiée le 6 mai 2003)
+----------------------------------------
+
+– Trop d’ajout/modifications/corrections pour être citées
+
+
+Version 2.2-alpha (publiée le 17 avril 2003)
+----------------------------------------
+
+– Support pour PostgreSQL
+– Ajout possibilité d’utiliser des fichiers joints au sein d’emails
+  HTML (images, sons, …)
+– Sauvegarde de modèle de newsletters réutilisables
+– Système de sauvegarde et de restauration des tables du script
+– Vérification et élimination lors d’importation d’emails et fichier
+  explicatif pour les emails refusés
+– Possibilité de stocker les fichiers joints sur un serveur ftp distant
+– Toute la partie concernant l’envoi proprement dit a été optimisée
+  au maximum pour réduire les risques de time out lors d’envois massifs
+– Nouveau système de gestion des fichiers joints (permet d’éviter les
+  doublons et de réutiliser des fichiers uploadés pour d’autres
+  newsletters)
+– Refonte de la table des abonnés, élimination des doublons et gestion
+  type "compte"
+– Système de purge modifié pour être réglable par liste
+– Système de gestion d’extensions de fichiers interdites (pour les
+  fichiers joints)
+– Générateur de formulaire simplifié
+– […]
+
+
+Version 2.1.4 (publiée le 22 juin 2003)
+----------------------------------------
+
+– Bug fix : Les administrateurs n’ayant pas les droits pour voir une
+  liste ne reçevaient pas les notifications d’inscription
+– Bug fix : Erreur dans le fichier de langage lang.php (français), il y
+  a deux index confirm_ok dans le tableau $lang
+– Security fix : Faille de sécurité dans le fichier newsletter.php
+  ($waroot) :¬/
+– Bug fix : L’option pour être prévenu d’une nouvelle version ne
+  fonctionnait plus
+– Bug fix : Problème dans la classe d’envoi d’emails qui pouvait
+  empecher les envois de démarrer
+– Bug fix : Redéfinition de constantes dans iframe.php
+– Bug fix : Variable de langue erronée dans view.php
+
+
+Version 2.1.3 (publiée le 25 mai 2003)
+----------------------------------------
+
+– Bug fix : Pièces jointes erronées avec les listes en format multiple,
+  avec envoi en copie cachée
+– Bug fix : Erreur SQL si l’inscription était confirmée une seconde fois
+
+
+Version 2.1.2 (publiée le 1er février 2003)
+----------------------------------------
+
+– Ajout fonction Location() pour header de redirection absolus (cf spec
+  HTTP/1.1)
+– Bug fix : Problèmes avec extra.php, pas d’affichage
+– Bug fix : Liste déroulante non fermée dans admin.php
+– Bug fix : Utilisation de $_POST au lieu de $HTTP_POST_VARS dans
+  admin_auth.php (problème lorsque php inférieur à 4.1.0)
+– Bug fix : Tri par email ne fonctionne pas dans la liste des inscrits
+– Bug fix : parse error line 1 dans config.php sur certains serveurs
+  (surement dù au fait que le fichier était au format mac)
+– Bug fix : Mauvais numéro de version du script dans la base de données
+  après une installation avec la version 2.1.1
+– Bug fix : Erreurs php dans stats.php lorsqu’il n’y a aucun inscrit
+  (warning mktime() et date() )
+– Bug fix : Erreur SQL lors d’une importation via upload si un des
+  emails contient des guillemets simples
+– Bug fix : Si toutes les listes étaient supprimées, plus aucun accés
+  à l’admin n’était possible
+– Bug fix : INSERT effectué même si le masque est vide dans la section
+  "emails bannis"
+– Bug fix : Erreur d’offset dans stats.php, graphe des inscriptions sur
+  le mois non affiché
+
+
+Version 2.1.1 (publiée le 18 décembre 2002)
+----------------------------------------
+
+– Bug fix : Jeu de caractère non spécifié dans lang.php
+– Bug fix : Dates partiellement traduites seulement dans l’admin des
+  inscrits et des logs
+– Security fix : Trou de sécurité corrigé dans newsletter.php ($waroot)
+– Bug fix : Perte éventuelle de la connexion au serveur SQL après
+  l’envoi et avant la mise à jour de la table des abonnés
+
+
+Version 2.1.0 (publiée le 7 novembre 2002)
+----------------------------------------
+
+– Bug fix : Message `undefined properties altmessage...` sur Nexen
+– Bug fix : Emails en un bloc (sans retour chariot) sous certains
+  environnements logiciels
+– Bug fix : Envoi terminé mais le script proposait de continuer s’il y
+  avait un abonné qui n’avait pas confirmé son inscription dans la liste 
+  de destination
+– Bug fix : Erreur SQL lors de l’envoi à une liste multi-format
+– Bug fix : Message `Warning undefined variable datalang...` lors des
+  messages d’information ou d’erreur
+– Bug fix : Problèmes potentiels si cookie nommé "lang", "datetime" ou
+  "datalang" présent sur la machine cliente
+– Bug fix : Problèmes potentiels si envoi à une liste multi-format en
+  plusieurs flots
+– Bug fix : Navigation générée incorrecte lorsque le nombre de page
+  était supérieur à 100
+– Bug fix : Problèmes potentiels lors du passage des critères de
+  recherche dans la navigation par page
+– Bug fix : Emails non envoyés sur Online
+– Bug fix : Emails reçus en double lors de l’envoi d’une newsletter
+  via le système smtp
+– Bug fix : Codes abonnés non présent dans le lien de desinscription
+  lors d’un envoi à une liste multi-format
+– Gestion du format des dates
+
+
+Version 2.1-beta2 (publiée le 5 novembre 2002)
+----------------------------------------
+
+– Bug fix : Email de retour d’erreur non pris en compte lors de l’envoi
+– Bug fix : Fonctions de statistiques actives même si la librairie GD
+  n’est pas installée sur le serveur
+– Bug fix : Lien de désinscription en double dans les envois au format texte
+– Bug fix : Erreur SQL lors de l’envoi à une liste ne comportant aucun abonné
+– Bug fix : Erreur `cannot redeclare function email()...` sous Nexen
+– Bug fix : Newsletter sauvegardée même si le sujet est vide
+– Bug fix : erreur `undefined offset..` si l’extension d’un fichier
+  joint n’est pas listé dans mailer.php
+– Bug fix : Boucle infinie dans envoi.php, résultat: les abonnés
+  recevaient des milliers d’emails
+– Ajout Gestion des jeux de caractères (charset) selon la langue choisie
+– faq pour les questions les plus générales (faq_fr.html, dispo dans le
+  dossier docs/)
+– Diverses autres corrections dans le code
+
+
+Version 2.1-beta (publiée le 4 novembre 2002)
+----------------------------------------
+
+– Administration plus esthétique
+– Générateur de formulaire simplifié
+– Possibilité d’utiliser le fichier suscribe.php au lieu de générer
+  un formulaire, auquel cas, toutes les listes apparaissent dans une liste
+  déroulante
+– Système de permissions avançé, par liste et/ou action effectuée
+– Confirmation de suppression pour les abonnés et les logs
+– Option d’email envoyé à un admin lors d’une nouvelle inscription
+  personnalisé à chaque liste
+– Système de bannissement d’emails ou de types d’email
+– Système de purge de la table des abonnés (inscription non
+  confirmées). Possibilité purge automatique
+– Module d’importation simplifié. Gestion d’upload des fichiers
+  compressés au format gzip
+– Module d’exportation d’adresses emails. Possibilité de
+  télécharger un fichier "gzippé" si le serveur le permet
+– Module de statistiques. Inscriptions par jour selon le mois et
+  l’année donnée ou visualisation graphique du nombre d’abonnés selon
+  les listes
+– Téléchargement du fichier de configuration à la fin de
+  l’installation s’il n’a pu être créé sur le serveur
+– Gestion des retours d’erreur (email inconnu, etc...)
+– Deux moteurs d’envoi : Un envoi avec les destinataires en copie
+  cachée, ou un envoi type: un abonné = un email
+– Fonctionne sur Online (avec le deuxième moteur d’envoi)
+– Possibilité de reprise d’un envoi et gestion par l’administrateur
+  du nombre d’envoi effectués en un flot
+
+
+Version 2.0.2 (publiée le 8 octobre 2002)
+----------------------------------------
+
+– Bug fix : Email non envoyé si l’admin veut etre prévenu d’une
+  nouvelle inscription
+– Bug fix : Section configuration, le script ne prenait pas certains
+  changements en compte
+– Bug fix : Message d’erreur lors de l’inscription sous certains
+  environnements (`Warning: Call-time pass-by-reference has been deprecated`)
+– Bug fix : Erreur lorsqu’une personne confirme son inscription (son
+  inscription etait bien confirmée mais il y avait quand meme un message
+  d’erreur)
+– Bug fix : Les inscrits qui n’avaient pas confirmés leur inscription
+  reçevaient quand même la newsletter
+– Bug fix : Variable $waroot incorrect dans version.php
+– Table session au format fixe et de type HEAP pour MySQL
+– Support pour les bases de données SQL server (aucun test n’a pu etre
+  réalisé, ce support est donc expérimental et tout retour sera le
+  bienvenue !)
+– Script d’installation simplifié, notamment pour les mises à jour à
+  partir de versions 2.x
+
+
+Version 2.0.1 (publiée le 27 septembre 2002)
+----------------------------------------
+
+– Bug fix : liste déroulante inopérante dans "voir liste de diffusion"
+  pour modifier le format
+– Bug fix : hebergeur non pris en compte pour l’envoi des mails
+– Bug fix : fichiers joints endommagés sous windows
+– Bug fix : liens cassés dans les emails d’inscription et de confirmation
+– Bug fix : erreur set_to() lors de l’envoi à une liste au double
+  format et aucun inscrit dans un des deux formats
+– Préparation au support d’autres bases de données (dossier `sql/`)
+– Bug fix : Gestion correcte des en-têtes de redirection
+  (header("Refresh: 0; URL=....")) sous les serveurs Microsoft et Xitami
+
+
+Version 2.0.0 (publiée le 10 septembre 2002)
+----------------------------------------
+
+– Bug fix : Affichage dans l’administration corrigé
+– Bug fix : Pas d’inclusion du fichier mailer.php lorsqu’il n’y
+  avait pas de confirmation, dans newsletter.php
+– Bug fix : Espaces en trop en tête des emails
+
+
+Version 2.0-beta (publiée le 23 août 2002)
+----------------------------------------
+
+– Gestion de plusieurs listes de diffusion
+– Affichage du nombre d’inscrits à une liste sur une page du site
+– Choix du format pour chaque liste
+– Formulaire d’inscription intégré au site ou affichable par popup
+– Confirmation d’inscription par email (possibilité
+  d’activer/désactiver cette option) pour chaque liste
+– Possibilité d’être prévenu par email de chaque nouvelle inscription
+– Fonctionne sur Nexen
+– Si votre hébergeur ne dispose pas de fonction mail() ou autre,
+  possibilité d’accés direct à un serveur smtp
+– Multi-administration avec plusieurs niveaux d’accés
+– Possibilité de sauvegarder une newsletter en cours de rédaction pour
+  la reprendre plus tard
+– Envoi de newsletter avec fichier(s) attaché(s)
+– Connexion à l’administration via un système de session (les cookies
+  ne sont plus obligatoires)
+– Utilitaire d’importation de masse
+– Petit module de recherche d’abonnés dans la table des abonnés
+
+
+Version 1.1.0 (publiée le 16 avril 2002)
+----------------------------------------
+
+– Bug fix : Affichage defectueux lors de l’installation
+– Bug fix : Affichage defectueux dans la section "rapport de bug" (non
+  non, c’est pas une blague !)
+– Possibilité de choisir le type de formulaire d’inscription affiché
+– Possibilité de choisir les types de format email autorisés (texte
+  et/ou html)
+– Utilisation d’un système de templates
+– Utilisation d’une table dans la base de données pour la configuration
+  de la newsletter
+– Possibilité de placer soi-même les liens de désinscription et/ou de
+  changement de format dans sa newsletter
+
+
+Version 1.0.0 (publiée le 28 mars 2002)
+----------------------------------------
+
+– Version initiale
+
+
