@@ -1,7 +1,7 @@
 <?php 
 $Ovh_serv_bDd = "mysql:host=esoftfrxiominkus.mysql.db;dbname=esoftfrxiominkus";
 $uTil_bDd_serv="esoftfrxiominkus";
-$mDp_bDd_serv="Cqdfx301";
+$mDp_bDd_serv="XXXXXX";
 
 $Home="https://e-soft.fr";
 $Serveur="contact@e-soft.fr";
